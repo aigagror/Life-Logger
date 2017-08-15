@@ -9,6 +9,7 @@
 import UIKit
 
 class StatisticsViewController: UIViewController {
+    @IBOutlet weak var segmentChart: SegmentChartView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,9 @@ class StatisticsViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        segmentChart.setNeedsDisplay()
+    }
 
     /*
     // MARK: - Navigation

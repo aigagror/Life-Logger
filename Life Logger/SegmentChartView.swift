@@ -10,11 +10,11 @@ import UIKit
 
 class SegmentChartView: UIView {
     
-    var offSet: TimeInterval = (0.00) * 60 * 60 // 7:00 a.m
+    // MARK: Properties
+    var startingHour = 7
+    var endingHour = 22
     
-    
-    /// 0 - day, 1 - week, 2 - month, 3 - year
-    var mode: Int = 0
+    var dayOffSet = 0
     
     var logs = [Log]()
 
@@ -23,6 +23,8 @@ class SegmentChartView: UIView {
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
+        
+        
         
         logs = DatabaseController.loadLogs()!
         
@@ -38,7 +40,7 @@ class SegmentChartView: UIView {
             let color = ActivityColor.getColor(index: activity.color)
             color.setFill()
             
-            let bounds = getPercentageBoundaries(log: log)
+            let bounds = getPercentageBoundaries(log: log)!
             
             if bounds.start == bounds.end {
                 continue
@@ -60,7 +62,11 @@ class SegmentChartView: UIView {
     ///
     /// - Parameter log: The Log
     /// - Returns: A tuple. First number is the beginning, last number is the end
-    private func getPercentageBoundaries(log: Log) -> (start: CGFloat, end: CGFloat) {
+    private func getPercentageBoundaries(log: Log) -> (start: CGFloat, end: CGFloat)? {
+        
+        let startingTime: TimeInterval = TimeInterval(startingHour) * 60 * 60 // 7:00 a.m
+        
+        let endingTime: TimeInterval = TimeInterval(endingHour) * 60 * 60 // 7:00 a.m
         
         let numberOfSecondsInADay: TimeInterval = 24 * 60 * 60
         
@@ -81,18 +87,18 @@ class SegmentChartView: UIView {
         let logEndTimeInSeconds = logEndDate?.timeIntervalSince(startOfTheDay)
         
         
-        startPercentage = CGFloat((logStartTimeInSeconds - offSet) / numberOfSecondsInADay)
+        startPercentage = CGFloat((logStartTimeInSeconds - startingTime) / numberOfSecondsInADay)
         
         startPercentage = max(startPercentage, 0.0)
         startPercentage = min(startPercentage, 1.0)
         
         if let logEndTimeInSeconds = logEndTimeInSeconds {
-            endPercentage = CGFloat((logEndTimeInSeconds - offSet) / numberOfSecondsInADay)
+            endPercentage = CGFloat((logEndTimeInSeconds - startingTime) / numberOfSecondsInADay)
             
             endPercentage = max(endPercentage, 0.0)
             endPercentage = min(endPercentage, 1.0)
         } else {
-            endPercentage = CGFloat((currentTime.timeIntervalSince(startOfTheDay) - offSet) / numberOfSecondsInADay)
+            endPercentage = CGFloat((currentTime.timeIntervalSince(startOfTheDay) - startingTime) / numberOfSecondsInADay)
         }
         
         

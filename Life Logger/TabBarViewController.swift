@@ -23,7 +23,7 @@ class TabBarViewController: UITabBarController {
         }
         
         // Reset everything
-        let reset = true
+        let reset = false
         
         if reset {
             let context = DatabaseController.getContext()
@@ -34,9 +34,6 @@ class TabBarViewController: UITabBarController {
             for activity in activities {
                 context.delete(activity)
             }
-            
-            
-            
             loadSampleActivities()
         }
     }

@@ -393,6 +393,9 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Statistics" image="second" id="mIp-3q-oKs"/>
+                    <connections>
+                        <outlet property="segmentChart" destination="i5R-8m-za6" id="C5U-WR-VKY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ohn-Bk-ih1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

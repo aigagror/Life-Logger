@@ -125,14 +125,14 @@ class ActivitiesTableViewController: UITableViewController {
         case "ShowDetail":
             guard let activityDetailViewController = segue.destination as? ActivityViewController else { fatalError("Unexpected destination: \(segue.destination)") }
             
-            guard let selectedMealCell = sender as? UITableViewCell else { fatalError("Unexpected sender: \(sender)") }
+            guard let selectedActivityCell = sender as? UITableViewCell else { fatalError("Unexpected sender: \(String(describing: sender))") }
             
-            guard let indexPath = tableView.indexPath(for: selectedMealCell) else { fatalError("The selected cell is not being displayed by the table") }
+            guard let indexPath = tableView.indexPath(for: selectedActivityCell) else { fatalError("The selected cell is not being displayed by the table") }
             
             let selectedActivity = activities[indexPath.row]
             activityDetailViewController.activity = selectedActivity
         default:
-            fatalError("Unexpected Segue Identifier; \(segue.identifier)")
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }
         
     }

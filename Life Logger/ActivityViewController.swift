@@ -105,7 +105,7 @@ class ActivityViewController: UIViewController, UITextFieldDelegate, ColorChoose
             // Set the activity to be passed to ActivityTableViewController after the unwind seque.
             
             if activity == nil {
-                activity = NSEntityDescription.insertNewObject(forEntityName: DatabaseController.activityClassName, into: DatabaseController.getContext()) as! Activity
+                activity = (NSEntityDescription.insertNewObject(forEntityName: DatabaseController.activityClassName, into: DatabaseController.getContext()) as! Activity)
             }
             
             activity?.name = name

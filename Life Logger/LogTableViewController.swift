@@ -105,6 +105,8 @@ class LogTableViewController: UITableViewController {
             let logToDelete = logs[indexPath.row]
             let context = DatabaseController.getContext()
             context.delete(logToDelete)
+            
+            logs.remove(at: indexPath.row)
             DatabaseController.saveContext()
             
             tableView.deleteRows(at: [indexPath], with: .fade)
@@ -148,7 +150,7 @@ class LogTableViewController: UITableViewController {
     // MARK: Actions
     
     @IBAction func unwindToLogList(sender: UIStoryboardSegue) {
-        if let sourceViewController = sender.source as? LogViewController, let log = sourceViewController.log {
+        if sender.source is LogViewController {
             
             guard let selectedIndexPath = tableView.indexPathForSelectedRow else {
                 fatalError("Could not get selected log cell")

@@ -63,7 +63,7 @@ final class ActivityColor {
         let circleSize = CGSize(width: 80, height: 80)
         
         UIGraphicsBeginImageContextWithOptions(imageSize, false, 0.0)
-        let context = UIGraphicsGetCurrentContext()
+//        let context = UIGraphicsGetCurrentContext()
         
         let circlePath = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x:10,y:60), size: circleSize))
         fillColor.setFill()
