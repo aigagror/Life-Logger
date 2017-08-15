@@ -1,0 +1,411 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2C12C30A1F3F785D001C2B36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12C3091F3F785D001C2B36 /* AppDelegate.swift */; };
+		2C12C30C1F3F785D001C2B36 /* LoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12C30B1F3F785D001C2B36 /* LoggerViewController.swift */; };
+		2C12C3111F3F785D001C2B36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C12C30F1F3F785D001C2B36 /* Main.storyboard */; };
+		2C12C3131F3F785D001C2B36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C12C3121F3F785D001C2B36 /* Assets.xcassets */; };
+		2C12C3161F3F785D001C2B36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C12C3141F3F785D001C2B36 /* LaunchScreen.storyboard */; };
+		2C12C31E1F3F7E34001C2B36 /* ActivityChooserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12C31D1F3F7E34001C2B36 /* ActivityChooserTableViewController.swift */; };
+		2C12C3201F3F859A001C2B36 /* ColorChooserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12C31F1F3F859A001C2B36 /* ColorChooserTableViewController.swift */; };
+		2C12C3221F3F85E1001C2B36 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12C3211F3F85E1001C2B36 /* ActivityViewController.swift */; };
+		2CB329AB1F3FDBA70056A268 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329AA1F3FDBA70056A268 /* DatabaseController.swift */; };
+		2CB329AD1F3FDD890056A268 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329AC1F3FDD890056A268 /* ActivitiesTableViewController.swift */; };
+		2CB329B31F3FE7220056A268 /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329B21F3FE7220056A268 /* LogTableViewController.swift */; };
+		2CB329B71F40AAEA0056A268 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329B61F40AAEA0056A268 /* TabBarViewController.swift */; };
+		2CB329B91F40BDF50056A268 /* ActivityChooserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329B81F40BDF50056A268 /* ActivityChooserDelegate.swift */; };
+		2CB329BB1F40CAA80056A268 /* TimeInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329BA1F40CAA80056A268 /* TimeInterval.swift */; };
+		2CB329E71F4245470056A268 /* ActivityColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329E61F4245470056A268 /* ActivityColor.swift */; };
+		2CB329EB1F42504F0056A268 /* Activities.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329E91F42504F0056A268 /* Activities.xcdatamodeld */; };
+		2CB329ED1F4253A50056A268 /* ColorChooserDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329EC1F4253A50056A268 /* ColorChooserDelegate.swift */; };
+		2CB329EF1F425AED0056A268 /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329EE1F425AED0056A268 /* StatisticsViewController.swift */; };
+		2CB329F31F425D6A0056A268 /* SegmentChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329F21F425D6A0056A268 /* SegmentChartView.swift */; };
+		2CB329F71F4360EB0056A268 /* LogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329F61F4360EB0056A268 /* LogViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		2C12C3061F3F785D001C2B36 /* Life Logger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Life Logger.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C12C3091F3F785D001C2B36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2C12C30B1F3F785D001C2B36 /* LoggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerViewController.swift; sourceTree = "<group>"; };
+		2C12C3101F3F785D001C2B36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2C12C3121F3F785D001C2B36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2C12C3151F3F785D001C2B36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2C12C3171F3F785D001C2B36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2C12C31D1F3F7E34001C2B36 /* ActivityChooserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityChooserTableViewController.swift; sourceTree = "<group>"; };
+		2C12C31F1F3F859A001C2B36 /* ColorChooserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorChooserTableViewController.swift; sourceTree = "<group>"; };
+		2C12C3211F3F85E1001C2B36 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		2CB329AA1F3FDBA70056A268 /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
+		2CB329AC1F3FDD890056A268 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
+		2CB329B21F3FE7220056A268 /* LogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
+		2CB329B61F40AAEA0056A268 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		2CB329B81F40BDF50056A268 /* ActivityChooserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityChooserDelegate.swift; sourceTree = "<group>"; };
+		2CB329BA1F40CAA80056A268 /* TimeInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeInterval.swift; sourceTree = "<group>"; };
+		2CB329E51F4241310056A268 /* Color Icon.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "Color Icon.playground"; sourceTree = "<group>"; };
+		2CB329E61F4245470056A268 /* ActivityColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityColor.swift; sourceTree = "<group>"; };
+		2CB329EA1F42504F0056A268 /* Activities.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Activities.xcdatamodel; sourceTree = "<group>"; };
+		2CB329EC1F4253A50056A268 /* ColorChooserDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorChooserDelegate.swift; sourceTree = "<group>"; };
+		2CB329EE1F425AED0056A268 /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
+		2CB329F21F425D6A0056A268 /* SegmentChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentChartView.swift; sourceTree = "<group>"; };
+		2CB329F61F4360EB0056A268 /* LogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2C12C3031F3F785D001C2B36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2C12C2FD1F3F785D001C2B36 = {
+			isa = PBXGroup;
+			children = (
+				2C12C3081F3F785D001C2B36 /* Life Logger */,
+				2C12C3071F3F785D001C2B36 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2C12C3071F3F785D001C2B36 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2C12C3061F3F785D001C2B36 /* Life Logger.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2C12C3081F3F785D001C2B36 /* Life Logger */ = {
+			isa = PBXGroup;
+			children = (
+				2CB329E91F42504F0056A268 /* Activities.xcdatamodeld */,
+				2CB329AA1F3FDBA70056A268 /* DatabaseController.swift */,
+				2C12C3091F3F785D001C2B36 /* AppDelegate.swift */,
+				2C12C30F1F3F785D001C2B36 /* Main.storyboard */,
+				2CB329B61F40AAEA0056A268 /* TabBarViewController.swift */,
+				2CB329AE1F3FDDCA0056A268 /* Logging */,
+				2CB329AF1F3FDDD60056A268 /* Activities */,
+				2CB329F01F425B270056A268 /* Statistics */,
+				2CB329BA1F40CAA80056A268 /* TimeInterval.swift */,
+				2CB329E51F4241310056A268 /* Color Icon.playground */,
+				2C12C3121F3F785D001C2B36 /* Assets.xcassets */,
+				2C12C3141F3F785D001C2B36 /* LaunchScreen.storyboard */,
+				2C12C3171F3F785D001C2B36 /* Info.plist */,
+			);
+			path = "Life Logger";
+			sourceTree = "<group>";
+		};
+		2CB329AE1F3FDDCA0056A268 /* Logging */ = {
+			isa = PBXGroup;
+			children = (
+				2C12C30B1F3F785D001C2B36 /* LoggerViewController.swift */,
+				2CB329B81F40BDF50056A268 /* ActivityChooserDelegate.swift */,
+				2C12C31D1F3F7E34001C2B36 /* ActivityChooserTableViewController.swift */,
+				2CB329B21F3FE7220056A268 /* LogTableViewController.swift */,
+				2CB329F61F4360EB0056A268 /* LogViewController.swift */,
+			);
+			name = Logging;
+			sourceTree = "<group>";
+		};
+		2CB329AF1F3FDDD60056A268 /* Activities */ = {
+			isa = PBXGroup;
+			children = (
+				2CB329AC1F3FDD890056A268 /* ActivitiesTableViewController.swift */,
+				2C12C3211F3F85E1001C2B36 /* ActivityViewController.swift */,
+				2C12C31F1F3F859A001C2B36 /* ColorChooserTableViewController.swift */,
+				2CB329EC1F4253A50056A268 /* ColorChooserDelegate.swift */,
+				2CB329E61F4245470056A268 /* ActivityColor.swift */,
+			);
+			name = Activities;
+			sourceTree = "<group>";
+		};
+		2CB329F01F425B270056A268 /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				2CB329EE1F425AED0056A268 /* StatisticsViewController.swift */,
+				2CB329F21F425D6A0056A268 /* SegmentChartView.swift */,
+			);
+			name = Statistics;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2C12C3051F3F785D001C2B36 /* Life Logger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2C12C31A1F3F785D001C2B36 /* Build configuration list for PBXNativeTarget "Life Logger" */;
+			buildPhases = (
+				2C12C3021F3F785D001C2B36 /* Sources */,
+				2C12C3031F3F785D001C2B36 /* Frameworks */,
+				2C12C3041F3F785D001C2B36 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Life Logger";
+			productName = "Life Logger";
+			productReference = 2C12C3061F3F785D001C2B36 /* Life Logger.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2C12C2FE1F3F785D001C2B36 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Eddie Huang";
+				TargetAttributes = {
+					2C12C3051F3F785D001C2B36 = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = CNVS5VG567;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 2C12C3011F3F785D001C2B36 /* Build configuration list for PBXProject "Life Logger" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2C12C2FD1F3F785D001C2B36;
+			productRefGroup = 2C12C3071F3F785D001C2B36 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2C12C3051F3F785D001C2B36 /* Life Logger */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2C12C3041F3F785D001C2B36 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2C12C3161F3F785D001C2B36 /* LaunchScreen.storyboard in Resources */,
+				2C12C3131F3F785D001C2B36 /* Assets.xcassets in Resources */,
+				2C12C3111F3F785D001C2B36 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2C12C3021F3F785D001C2B36 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2CB329B31F3FE7220056A268 /* LogTableViewController.swift in Sources */,
+				2CB329F31F425D6A0056A268 /* SegmentChartView.swift in Sources */,
+				2C12C30A1F3F785D001C2B36 /* AppDelegate.swift in Sources */,
+				2CB329B71F40AAEA0056A268 /* TabBarViewController.swift in Sources */,
+				2C12C3201F3F859A001C2B36 /* ColorChooserTableViewController.swift in Sources */,
+				2CB329AD1F3FDD890056A268 /* ActivitiesTableViewController.swift in Sources */,
+				2C12C31E1F3F7E34001C2B36 /* ActivityChooserTableViewController.swift in Sources */,
+				2CB329EF1F425AED0056A268 /* StatisticsViewController.swift in Sources */,
+				2C12C30C1F3F785D001C2B36 /* LoggerViewController.swift in Sources */,
+				2CB329F71F4360EB0056A268 /* LogViewController.swift in Sources */,
+				2CB329BB1F40CAA80056A268 /* TimeInterval.swift in Sources */,
+				2CB329E71F4245470056A268 /* ActivityColor.swift in Sources */,
+				2CB329EB1F42504F0056A268 /* Activities.xcdatamodeld in Sources */,
+				2C12C3221F3F85E1001C2B36 /* ActivityViewController.swift in Sources */,
+				2CB329AB1F3FDBA70056A268 /* DatabaseController.swift in Sources */,
+				2CB329ED1F4253A50056A268 /* ColorChooserDelegate.swift in Sources */,
+				2CB329B91F40BDF50056A268 /* ActivityChooserDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		2C12C30F1F3F785D001C2B36 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C12C3101F3F785D001C2B36 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2C12C3141F3F785D001C2B36 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2C12C3151F3F785D001C2B36 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2C12C3181F3F785D001C2B36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2C12C3191F3F785D001C2B36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2C12C31B1F3F785D001C2B36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CNVS5VG567;
+				INFOPLIST_FILE = "Life Logger/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aigagror.Life-Logger";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2C12C31C1F3F785D001C2B36 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = CNVS5VG567;
+				INFOPLIST_FILE = "Life Logger/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aigagror.Life-Logger";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2C12C3011F3F785D001C2B36 /* Build configuration list for PBXProject "Life Logger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C12C3181F3F785D001C2B36 /* Debug */,
+				2C12C3191F3F785D001C2B36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2C12C31A1F3F785D001C2B36 /* Build configuration list for PBXNativeTarget "Life Logger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2C12C31B1F3F785D001C2B36 /* Debug */,
+				2C12C31C1F3F785D001C2B36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2CB329E91F42504F0056A268 /* Activities.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2CB329EA1F42504F0056A268 /* Activities.xcdatamodel */,
+			);
+			currentVersion = 2CB329EA1F42504F0056A268 /* Activities.xcdatamodel */;
+			path = Activities.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2C12C2FE1F3F785D001C2B36 /* Project object */;
+}

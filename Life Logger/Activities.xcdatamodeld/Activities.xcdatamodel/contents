@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Activity" representedClassName="Activity" syncable="YES" codeGenerationType="class">
+        <attribute name="color" attributeType="Integer 16" minValueString="0" maxValueString="6" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="logs" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Log" inverseName="activity" inverseEntity="Log" syncable="YES"/>
+    </entity>
+    <entity name="Log" representedClassName="Log" syncable="YES" codeGenerationType="class">
+        <attribute name="dateEnded" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="dateStarted" attributeType="Date" minDateTimeInterval="492903660" defaultDateTimeInterval="524439660" usesScalarValueType="NO" syncable="YES"/>
+        <relationship name="activity" maxCount="1" deletionRule="Nullify" destinationEntity="Activity" inverseName="logs" inverseEntity="Activity" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Activity" positionX="-45" positionY="0" width="128" height="88"/>
+        <element name="Log" positionX="295" positionY="-45" width="128" height="88"/>
+    </elements>
+</model>
