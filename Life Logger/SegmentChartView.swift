@@ -11,8 +11,8 @@ import UIKit
 class SegmentChartView: UIView {
     
     // MARK: Properties
-    var startingHour = 7
-    var endingHour = 22
+    var startingHour = 0
+    var endingHour = 24
     
     var dayOffSet = 0
     
@@ -64,11 +64,11 @@ class SegmentChartView: UIView {
     /// - Returns: A tuple. First number is the beginning, last number is the end
     private func getPercentageBoundaries(log: Log) -> (start: CGFloat, end: CGFloat)? {
         
-        let startingTime: TimeInterval = TimeInterval(startingHour) * 60 * 60 // 7:00 a.m
+        let startingTime: TimeInterval = TimeInterval(startingHour) * 60 * 60
         
-        let endingTime: TimeInterval = TimeInterval(endingHour) * 60 * 60 // 7:00 a.m
+        let endingTime: TimeInterval = TimeInterval(endingHour) * 60 * 60
         
-        let numberOfSecondsInADay: TimeInterval = 24 * 60 * 60
+        let totalNumberOfSeconds: TimeInterval = endingTime - startingTime
         
         var startPercentage: CGFloat = 0.0
         var endPercentage: CGFloat = 0.0
@@ -87,18 +87,18 @@ class SegmentChartView: UIView {
         let logEndTimeInSeconds = logEndDate?.timeIntervalSince(startOfTheDay)
         
         
-        startPercentage = CGFloat((logStartTimeInSeconds - startingTime) / numberOfSecondsInADay)
+        startPercentage = CGFloat((logStartTimeInSeconds - startingTime) / totalNumberOfSeconds)
         
         startPercentage = max(startPercentage, 0.0)
         startPercentage = min(startPercentage, 1.0)
         
         if let logEndTimeInSeconds = logEndTimeInSeconds {
-            endPercentage = CGFloat((logEndTimeInSeconds - startingTime) / numberOfSecondsInADay)
+            endPercentage = CGFloat((logEndTimeInSeconds - startingTime) / totalNumberOfSeconds)
             
             endPercentage = max(endPercentage, 0.0)
             endPercentage = min(endPercentage, 1.0)
         } else {
-            endPercentage = CGFloat((currentTime.timeIntervalSince(startOfTheDay) - startingTime) / numberOfSecondsInADay)
+            endPercentage = CGFloat((currentTime.timeIntervalSince(startOfTheDay) - startingTime) / totalNumberOfSeconds)
         }
         
         

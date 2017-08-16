@@ -37,47 +37,18 @@ class LoggerViewController: UIViewController, ActivityChooserDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        // load the current activity if any
-        let fetchRequest: NSFetchRequest<Log> = Log.fetchRequest()
-        let predicate = NSPredicate(format: "dateEnded = nil")
-        fetchRequest.fetchLimit = 1
-        fetchRequest.predicate = predicate
-        
-        do {
-            let searchResults = try DatabaseController.getContext().fetch(fetchRequest)
-            print("number of results: \(searchResults.count)")
-            guard searchResults.count <= 1 else {
-                os_log("More than one log fetched", log: OSLog.default, type: .debug)
-                return
-            }
-            
-            if let log = searchResults.first {
-                currentLog = log
-                currentActivity = log.activity
-                
-                activityTitle.text = currentActivity?.name
-                
-                let currentDate = NSDate()
-                
-                guard let startingDate = log.dateStarted else {
-                    fatalError("Could not get starting date of log")
-                }
-                let timeInterval = currentDate.timeIntervalSince(startingDate as Date)
-                activityTimer.text = timeInterval.formatString()
-                startTimer()
-            }
-        }
-        catch {
-            print("Error: \(error)")
-        }
+        updateActivity()
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        updateActivity()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -114,6 +85,50 @@ class LoggerViewController: UIViewController, ActivityChooserDelegate {
     }
     
     // MARK: Private Methods
+    
+    private func updateActivity() {
+        // load the current activity if any
+        let fetchRequest: NSFetchRequest<Log> = Log.fetchRequest()
+        let predicate = NSPredicate(format: "dateEnded = nil")
+        fetchRequest.fetchLimit = 1
+        fetchRequest.predicate = predicate
+        
+        do {
+            let searchResults = try DatabaseController.getContext().fetch(fetchRequest)
+            print("number of results: \(searchResults.count)")
+            guard searchResults.count <= 1 else {
+                os_log("More than one log fetched", log: OSLog.default, type: .debug)
+                return
+            }
+            
+            if let log = searchResults.first {
+                currentLog = log
+                currentActivity = log.activity
+                
+                activityTitle.text = currentActivity?.name
+                
+                let currentDate = NSDate()
+                
+                guard let startingDate = log.dateStarted else {
+                    fatalError("Could not get starting date of log")
+                }
+                let timeInterval = currentDate.timeIntervalSince(startingDate as Date)
+                activityTimer.text = timeInterval.formatString()
+                startTimer()
+            } else {
+                currentLog = nil
+                currentActivity = nil
+                
+                activityTitle.text = "Start an Activity"
+                activityTimer.text = TimeInterval(0).formatString()
+                
+            }
+        }
+        catch {
+            print("Error: \(error)")
+        }
+    }
+    
     @objc private func updateTimer() {
         if let currentLog = currentLog {
             let startDate = currentLog.dateStarted! as Date

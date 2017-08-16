@@ -34,11 +34,14 @@ class LogViewController: UIViewController {
         let endDate = log.dateEnded
         
         startDateLabel.text = dateFormatter.string(from: startDate as Date)
+        startDatePicker.date = startDate as Date
         if let endDate = endDate {
             endDateLabel.text = dateFormatter.string(from: endDate as Date)
+            endDatePicker.date = endDate as Date
         } else {
             endDateLabel.text = "present"
-            endDatePicker.isHidden = true
+            endDatePicker.isUserInteractionEnabled = false
+            endDatePicker.alpha = 0.3
         }
         
         self.navigationItem.title = log.activity!.name!
@@ -51,15 +54,31 @@ class LogViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        
+        super.prepare(for: segue, sender: sender)
+        
+        // Configure the destination view controller only when the save button is pressed.
+        if let button = sender as? UIBarButtonItem, button === saveButton {
+            
+            // Save the log
+            
+            log.dateStarted = startDatePicker.date as NSDate
+            
+            if log.dateEnded != nil {
+                log.dateEnded = endDatePicker.date as NSDate
+            }
+            
+        }
+        
     }
-    */
+ 
     
     
     // MARK: Private Methods
