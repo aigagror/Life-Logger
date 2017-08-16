@@ -14,7 +14,15 @@ class SegmentChartView: UIView {
     var startingHour = 0
     var endingHour = 24
     
-    var dayOffSet = 0
+    /// The number of days to go back by. (Must be non-negative)
+    var dayOffSet = 0 {
+        didSet {
+            self.setNeedsDisplay()
+            if dayOffSet < 0 {
+                fatalError("dayOffSet cannot be negative")
+            }
+        }
+    }
     
     var logs = [Log]()
 
@@ -23,8 +31,6 @@ class SegmentChartView: UIView {
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
-        
-        
         
         logs = DatabaseController.loadLogs()!
         
@@ -70,12 +76,14 @@ class SegmentChartView: UIView {
         
         let totalNumberOfSeconds: TimeInterval = endingTime - startingTime
         
-        var startPercentage: CGFloat = 0.0
-        var endPercentage: CGFloat = 0.0
+        var startPercentage: CGFloat
+        var endPercentage: CGFloat
         
         let currentTime = NSDate()
         let currentCalendar = Calendar.current
-        let startOfTheDay = currentCalendar.startOfDay(for: currentTime as Date)
+        
+        var startOfTheDay = currentCalendar.startOfDay(for: currentTime as Date)
+        startOfTheDay = Date(timeInterval: TimeInterval(-dayOffSet * 24 * 60 * 60), since: startOfTheDay)
         
         let logStartDate = log.dateStarted!
         

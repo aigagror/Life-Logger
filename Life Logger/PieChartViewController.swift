@@ -10,6 +10,23 @@ import UIKit
 
 class PieChartViewController: UIViewController {
 
+    // MARK: Properties
+    var chartMode: TimeMode = .day {
+        didSet {
+            switch chartMode {
+            case .day:
+                pieChartView.numberOfDays = 1
+            case .week:
+                pieChartView.numberOfDays = 7
+            case .month:
+                pieChartView.numberOfDays = 30
+            case .year:
+                pieChartView.numberOfDays = 355
+            }
+        }
+    }
+    @IBOutlet weak var pieChartView: PieChartView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

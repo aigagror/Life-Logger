@@ -12,14 +12,20 @@ class StatisticsViewController: UIViewController, UIPageViewControllerDelegate, 
     
     // MARK: Properties
     var pageViewController: UIPageViewController!
+    var chartMode = TimeMode.day
     
+    @IBOutlet weak var chartSegmentControl: UISegmentedControl!
     
+    @IBOutlet weak var timeModeSegmentControl: UISegmentedControl!
     @IBOutlet weak var pageController: UIPageControl!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        timeModeSegmentControl.addTarget(self, action: #selector(StatisticsViewController.userChoseTimeMode), for: .valueChanged)
+        chartSegmentControl.addTarget(self, action: #selector(StatisticsViewController.userChoseChartMode), for: .valueChanged)
     }
 
     override func didReceiveMemoryWarning() {
@@ -30,9 +36,55 @@ class StatisticsViewController: UIViewController, UIPageViewControllerDelegate, 
     override func viewWillAppear(_ animated: Bool) {
     }
 
+    // MARK: SegmentControl Delegation
+    
+    func userChoseChartMode() -> Void {
+        let selectedIndex = chartSegmentControl.selectedSegmentIndex
+        switch selectedIndex {
+        case 0:
+            pageViewController.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "SegmentChartVC"))!], direction: .forward, animated: false, completion: nil)
+        case 1:
+            pageViewController.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "PieChartVC"))!], direction: .forward, animated: false, completion: nil)
+        default:
+            fatalError("Unknown selection for chart segment control")
+        }
+    }
+    
+    func userChoseTimeMode() -> Void {
+        
+        let selectedIndex = timeModeSegmentControl.selectedSegmentIndex
+        switch selectedIndex {
+        case 0:
+            self.chartMode = .day
+        case 1:
+            self.chartMode = .week
+        case 2:
+            self.chartMode = .month
+        case 3:
+            self.chartMode = .year
+        default:
+            fatalError("Unknown selectedIndex: \(selectedIndex)")
+        }
+        
+        // update the currently presented chart
+        
+        guard let vc = pageViewController.viewControllers!.first else {
+            fatalError("Could not get currently presented chart view controller")
+        }
+        
+        if let segmentVC = vc as? SegmentChartViewController {
+            segmentVC.chartMode = self.chartMode
+        } else {
+            guard let pieVC = vc as? PieChartViewController else { fatalError("Unknown View Controller") }
+            pieVC.chartMode = self.chartMode
+        }
+    }
     
     // MARK: Page control delegation and data source
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        
+        return nil
+        
         if viewController is SegmentChartViewController {
             let ret = self.storyboard?.instantiateViewController(withIdentifier: "PieChartVC")
             return ret
@@ -43,12 +95,29 @@ class StatisticsViewController: UIViewController, UIPageViewControllerDelegate, 
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        
+        return nil
+        
         if viewController is SegmentChartViewController {
             let ret = self.storyboard?.instantiateViewController(withIdentifier: "PieChartVC")
             return ret
         } else {
             let ret = self.storyboard?.instantiateViewController(withIdentifier: "SegmentChartVC")
             return ret
+        }
+    }
+    
+    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
+        
+        guard pendingViewControllers.count == 1 else {
+            fatalError("Expected only 1 view controller, got \(pendingViewControllers.count)")
+        }
+        let viewControllerToBeShown = pendingViewControllers.first!
+        if let segmentViewController = viewControllerToBeShown as? SegmentChartViewController {
+            segmentViewController.chartMode = self.chartMode
+        } else {
+            guard let pieVC = viewControllerToBeShown as? PieChartViewController else { fatalError("Unknown View Controller") }
+            pieVC.chartMode = self.chartMode
         }
     }
     
