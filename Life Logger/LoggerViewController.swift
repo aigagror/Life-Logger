@@ -21,15 +21,15 @@ class LoggerViewController: UIViewController, ActivityChooserDelegate {
     
     @IBOutlet weak var activityTitle: UILabel!
     @IBOutlet weak var activityTimer: UILabel!
+    @IBOutlet weak var activityColorImage: UIImageView!
     
     @IBAction func stopLog(_ sender: Any) {
         stopTimer()
         if let currentLog = currentLog {
             currentLog.dateEnded = NSDate()
-            currentActivity = nil
-            self.currentLog = nil
             DatabaseController.saveContext()
         }
+        updateActivity()
     }
     
     
@@ -95,7 +95,6 @@ class LoggerViewController: UIViewController, ActivityChooserDelegate {
         
         do {
             let searchResults = try DatabaseController.getContext().fetch(fetchRequest)
-            print("number of results: \(searchResults.count)")
             guard searchResults.count <= 1 else {
                 os_log("More than one log fetched", log: OSLog.default, type: .debug)
                 return
@@ -103,7 +102,7 @@ class LoggerViewController: UIViewController, ActivityChooserDelegate {
             
             if let log = searchResults.first {
                 currentLog = log
-                currentActivity = log.activity
+                currentActivity = log.activity!
                 
                 activityTitle.text = currentActivity?.name
                 
@@ -114,6 +113,7 @@ class LoggerViewController: UIViewController, ActivityChooserDelegate {
                 }
                 let timeInterval = currentDate.timeIntervalSince(startingDate as Date)
                 activityTimer.text = timeInterval.formatString()
+                activityColorImage.image = ActivityColor.getImage(index: currentActivity!.color)
                 startTimer()
             } else {
                 currentLog = nil
@@ -122,6 +122,7 @@ class LoggerViewController: UIViewController, ActivityChooserDelegate {
                 activityTitle.text = "Start an Activity"
                 activityTimer.text = TimeInterval(0).formatString()
                 
+                activityColorImage.image = ActivityColor.getImage(index: -1)
             }
         }
         catch {

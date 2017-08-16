@@ -24,62 +24,86 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="RI1-FU-ULD">
-                                <rect key="frame" x="83" y="66" width="209.5" height="146.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Z1P-1j-bgC">
+                                <rect key="frame" x="0.0" y="70" width="375" height="498"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start an Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="du3-id-q2C">
-                                        <rect key="frame" x="0.0" y="0.0" width="209.5" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmD-D9-bUP">
-                                        <rect key="frame" x="69" y="66" width="71.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6Y-hE-S7B">
-                                        <rect key="frame" x="74" y="116.5" width="62" height="30"/>
-                                        <state key="normal" title="Stop Log">
-                                            <color key="titleColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="stopLog:" destination="9pv-A4-QxB" eventType="touchUpInside" id="d5X-pd-iJL"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Xoc-fW-iQB">
-                                <rect key="frame" x="155" y="410" width="64" height="110"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNL-Ve-yUm">
-                                        <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
-                                        <state key="normal" title="New Log"/>
-                                        <connections>
-                                            <segue destination="u2t-fF-gqk" kind="presentation" id="gZd-au-Dxr"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qe-tA-AWq">
-                                        <rect key="frame" x="0.0" y="80" width="64" height="30"/>
-                                        <state key="normal" title="Edit Logs"/>
-                                        <connections>
-                                            <segue destination="ccv-to-YUC" kind="presentation" id="vW4-VF-IXT"/>
-                                        </connections>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="RI1-FU-ULD">
+                                        <rect key="frame" x="37.5" y="0.0" width="300" height="160.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ExK-Su-BYr">
+                                                <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RL2-8H-U2d">
+                                                        <rect key="frame" x="0.0" y="0.0" width="25" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="RL2-8H-U2d" secondAttribute="height" multiplier="1:2" id="RPD-3c-dUF"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Start an Activity" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="du3-id-q2C">
+                                                        <rect key="frame" x="25" y="0.0" width="275" height="50"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="jSt-bM-lG1"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="RL2-8H-U2d" firstAttribute="height" secondItem="du3-id-q2C" secondAttribute="height" id="woU-xW-O36"/>
+                                                </constraints>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmD-D9-bUP">
+                                                <rect key="frame" x="114.5" y="80" width="71.5" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l6Y-hE-S7B">
+                                                <rect key="frame" x="119" y="130.5" width="62" height="30"/>
+                                                <state key="normal" title="Stop Log">
+                                                    <color key="titleColor" red="0.80000000000000004" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="stopLog:" destination="9pv-A4-QxB" eventType="touchUpInside" id="d5X-pd-iJL"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Xoc-fW-iQB">
+                                        <rect key="frame" x="155.5" y="388" width="64" height="110"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNL-Ve-yUm">
+                                                <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
+                                                <state key="normal" title="New Log"/>
+                                                <connections>
+                                                    <segue destination="u2t-fF-gqk" kind="presentation" id="gZd-au-Dxr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qe-tA-AWq">
+                                                <rect key="frame" x="0.0" y="80" width="64" height="30"/>
+                                                <state key="normal" title="Edit Logs"/>
+                                                <connections>
+                                                    <segue destination="ccv-to-YUC" kind="presentation" id="vW4-VF-IXT"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Xoc-fW-iQB" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="Nwx-GO-QCn"/>
-                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Xoc-fW-iQB" secondAttribute="bottom" constant="98" id="g5W-5h-Vdz"/>
-                            <constraint firstItem="RI1-FU-ULD" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="46" id="xEQ-bt-432"/>
-                            <constraint firstItem="RI1-FU-ULD" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="zrh-Wo-BAO"/>
+                            <constraint firstItem="ExK-Su-BYr" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" multiplier="0.8" id="Gbd-CK-BNU"/>
+                            <constraint firstItem="Z1P-1j-bgC" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="50" id="MhQ-OQ-7Rw"/>
+                            <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Z1P-1j-bgC" secondAttribute="bottom" constant="50" id="Mv1-bB-t9i"/>
+                            <constraint firstItem="Z1P-1j-bgC" firstAttribute="width" secondItem="tsR-hK-woN" secondAttribute="width" id="WCB-76-sik"/>
+                            <constraint firstItem="Z1P-1j-bgC" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="lIk-MQ-4x5"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Logger" image="first" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="activityColorImage" destination="RL2-8H-U2d" id="SJ9-PY-tbf"/>
                         <outlet property="activityTimer" destination="rmD-D9-bUP" id="QQG-5S-lJL"/>
                         <outlet property="activityTitle" destination="du3-id-q2C" id="VUb-oQ-E9d"/>
                     </connections>
@@ -671,7 +695,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecz-gB-RpE" customClass="PieChartView" customModule="Life_Logger" customModuleProvider="target">
-                                <rect key="frame" x="-0.5" y="145.5" width="375" height="375"/>
+                                <rect key="frame" x="0.0" y="146" width="375" height="375"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ecz-gB-RpE" secondAttribute="height" multiplier="1:1" id="Y0U-Ic-xQn"/>
@@ -741,7 +765,7 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0V-Bo-1pq" customClass="SegmentChartView" customModule="Life_Logger" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="6" width="375" height="48"/>
+                                                            <rect key="frame" x="0.0" y="6" width="667" height="48"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         </view>
                                                     </subviews>

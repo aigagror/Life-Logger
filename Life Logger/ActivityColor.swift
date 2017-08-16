@@ -56,8 +56,18 @@ final class ActivityColor {
     }
     
     static func getImage(index: Int) -> UIImage {
-        let fillColor = fillColors[index]
-        let strokeColor = strokeColors[index]
+        
+        let fillColor: UIColor
+        let strokeColor: UIColor
+        
+        if index < 0 {
+            fillColor = .white
+            strokeColor = .lightGray
+        } else {
+            fillColor = fillColors[index]
+            strokeColor = strokeColors[index]
+        }
+        
         let lineWidth: CGFloat = 5.0
         let imageSize = CGSize(width: 100, height: 200)
         let circleSize = CGSize(width: 80, height: 80)
