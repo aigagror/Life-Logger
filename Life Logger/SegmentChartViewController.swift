@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SegmentChartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SegmentChartViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ChartDelegate {
     
     
     // MARK: Properties
@@ -18,6 +18,7 @@ class SegmentChartViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
 
+    @IBOutlet weak var logLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -45,6 +46,7 @@ class SegmentChartViewController: UIViewController, UITableViewDelegate, UITable
         }
         
         segmentChartView.dayOffSet = indexPath.row
+        segmentChartView.delegate = self
         
         return cell
     }
@@ -63,6 +65,32 @@ class SegmentChartViewController: UIViewController, UITableViewDelegate, UITable
             }
         }
         return 0
+    }
+    
+    // MARK: Chart Delegation
+    func userWantsToSee(log: Log) {
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = .short
+        dateFormatter.dateStyle = .none
+        
+        let activityName = log.activity!.name!
+        let startTime = dateFormatter.string(from: log.dateStarted! as Date)
+        let endTime: String
+        if let dateEnded = log.dateEnded {
+            endTime = dateFormatter.string(from: dateEnded as Date)
+        } else {
+            endTime = dateFormatter.string(from: Date())
+        }
+        logLabel.text = "\(activityName): \(startTime) - \(endTime)"
+    }
+    
+    func userTouchedUnknownTimeSection() {
+        logLabel.text = "Unknown"
+    }
+    
+    func userStoppedTouching() {
+        logLabel.text = "-"
     }
     
 

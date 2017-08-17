@@ -11,6 +11,9 @@ import UIKit
 class SegmentChartView: UIView {
     
     // MARK: Properties
+    
+    var delegate: ChartDelegate?
+    
     var startingHour = 0
     var endingHour = 24
     
@@ -25,7 +28,31 @@ class SegmentChartView: UIView {
     }
     
     var logs = [Log]()
-
+    
+    var logPaths: [Log : UIBezierPath]!
+    
+    // MARK: Touch recognition
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        assert(touches.count == 1)
+        
+        informDelegateAboutTouch(touches.first!)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        assert(touches.count == 1)
+        
+        informDelegateAboutTouch(touches.first!)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.delegate?.userStoppedTouching()
+    }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.delegate?.userStoppedTouching()
+    }
+    
+    // MARK: Drawing
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
@@ -33,6 +60,7 @@ class SegmentChartView: UIView {
         // Drawing code
         
         logs = DatabaseController.loadLogs()!
+        logPaths = [:]
         
         UIColor.gray.setFill()
         let outlinePath = UIBezierPath(roundedRect: self.bounds, cornerRadius: 5.0)
@@ -60,6 +88,10 @@ class SegmentChartView: UIView {
             
             let segmentPath = UIBezierPath(rect: segmentRect)
             segmentPath.fill()
+            
+            // add the log:path
+            
+            logPaths[log] = segmentPath
         }
         
         
@@ -88,6 +120,23 @@ class SegmentChartView: UIView {
             tickPath.lineWidth = 1.0
             UIColor.white.setStroke()
             tickPath.stroke()
+        }
+    }
+    
+    
+    // MARK: Private Methods
+    private func informDelegateAboutTouch(_ touch: UITouch) -> Void {
+        
+        // see if one of the paths in logPaths contains the touch
+        if let delegate = self.delegate {
+            let position = touch.location(in: self)
+            for (log , path) in logPaths {
+                if path.contains(position) {
+                    delegate.userWantsToSee?(log: log)
+                    return
+                }
+            }
+            delegate.userTouchedUnknownTimeSection()
         }
     }
     

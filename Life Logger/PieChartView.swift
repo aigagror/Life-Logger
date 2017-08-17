@@ -12,6 +12,8 @@ class PieChartView: UIView {
     
     // MARK: Properties
     
+    var delegate: ChartDelegate?
+    
     /// The number of days to go back by. (Always positive)
     var numberOfDays = 1 {
         didSet {
@@ -22,13 +24,41 @@ class PieChartView: UIView {
         }
     }
     
+    var activityPaths: [Activity : UIBezierPath]!
+    var activityTimes: [Activity : TimeInterval]!
+    
+    
     private let numberOfSecondsInADay = 24 * 60 * 60
-
+    
+    // MARK: Touch Recognition
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        assert(touches.count == 1)
+        
+        informDelegateAboutTouch(touches.first!)
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        assert(touches.count == 1)
+        
+        informDelegateAboutTouch(touches.first!)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.delegate?.userStoppedTouching()
+    }
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.delegate?.userStoppedTouching()
+    }
+    
+    // MARK: Drawing
     
     // Only override draw() if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect) {
         // Drawing code
+        
+        activityPaths = [:]
+        activityTimes = [:]
         
         let radius = min(self.bounds.height, self.bounds.width) / 2
         
@@ -66,10 +96,30 @@ class PieChartView: UIView {
             slicePath.fill()
             
             currentAngle += delta
+            
+            // add data to activity paths and times
+            activityPaths[activityTime.key] = slicePath
+            activityTimes[activityTime.key] = TimeInterval(activityTime.value) * TimeInterval(numberOfSecondsInADay)
         }
     }
     
     // MARK: Private Methods
+    
+    private func informDelegateAboutTouch(_ touch: UITouch) -> Void {
+        
+        // see if one of the paths in logPaths contains the touch
+        if let delegate = self.delegate {
+            let position = touch.location(in: self)
+            for (activity , path) in activityPaths {
+                if path.contains(position) {
+                    let time = activityTimes[activity]!
+                    delegate.userWantsToSee?(activity: activity, forTime: time)
+                    return
+                }
+            }
+            delegate.userTouchedUnknownTimeSection()
+        }
+    }
     
     
     /// Using the number of days, this function looks at all the logs that have a timestamp between now and the number of days ago and outputs the proportion of time spent on each activity

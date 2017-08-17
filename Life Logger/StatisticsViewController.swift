@@ -8,16 +8,23 @@
 
 import UIKit
 
-class StatisticsViewController: UIViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
+class StatisticsViewController: UIViewController {
     
     // MARK: Properties
-    var pageViewController: UIPageViewController!
+    
     var chartMode = TimeMode.day
     
-    @IBOutlet weak var chartSegmentControl: UISegmentedControl!
+    @IBOutlet weak var segmentContainerView: UIView!
+    @IBOutlet weak var pieContainerView: UIView!
     
+    @IBOutlet weak var chartSegmentControl: UISegmentedControl!
     @IBOutlet weak var timeModeSegmentControl: UISegmentedControl!
     @IBOutlet weak var pageController: UIPageControl!
+    
+    
+    
+    var segmentController: SegmentChartViewController!
+    var pieController: PieChartViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,9 +49,15 @@ class StatisticsViewController: UIViewController, UIPageViewControllerDelegate, 
         let selectedIndex = chartSegmentControl.selectedSegmentIndex
         switch selectedIndex {
         case 0:
-            pageViewController.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "SegmentChartVC"))!], direction: .forward, animated: false, completion: nil)
+            
+            segmentContainerView.isHidden = false
+            
+            pieContainerView.isHidden = true
         case 1:
-            pageViewController.setViewControllers([(self.storyboard?.instantiateViewController(withIdentifier: "PieChartVC"))!], direction: .forward, animated: false, completion: nil)
+            
+            segmentContainerView.isHidden = true
+            
+            pieContainerView.isHidden = false
         default:
             fatalError("Unknown selection for chart segment control")
         }
@@ -66,60 +79,13 @@ class StatisticsViewController: UIViewController, UIPageViewControllerDelegate, 
             fatalError("Unknown selectedIndex: \(selectedIndex)")
         }
         
-        // update the currently presented chart
-        
-        guard let vc = pageViewController.viewControllers!.first else {
-            fatalError("Could not get currently presented chart view controller")
-        }
-        
-        if let segmentVC = vc as? SegmentChartViewController {
-            segmentVC.chartMode = self.chartMode
-        } else {
-            guard let pieVC = vc as? PieChartViewController else { fatalError("Unknown View Controller") }
-            pieVC.chartMode = self.chartMode
-        }
+        // update the charts
+        segmentController.chartMode = self.chartMode
+        pieController.chartMode = self.chartMode
     }
     
-    // MARK: Page control delegation and data source
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
-        
-        return nil
-        
-        if viewController is SegmentChartViewController {
-            let ret = self.storyboard?.instantiateViewController(withIdentifier: "PieChartVC")
-            return ret
-        } else {
-            let ret = self.storyboard?.instantiateViewController(withIdentifier: "SegmentChartVC")
-            return ret
-        }
-    }
     
-    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
-        
-        return nil
-        
-        if viewController is SegmentChartViewController {
-            let ret = self.storyboard?.instantiateViewController(withIdentifier: "PieChartVC")
-            return ret
-        } else {
-            let ret = self.storyboard?.instantiateViewController(withIdentifier: "SegmentChartVC")
-            return ret
-        }
-    }
     
-    func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
-        
-        guard pendingViewControllers.count == 1 else {
-            fatalError("Expected only 1 view controller, got \(pendingViewControllers.count)")
-        }
-        let viewControllerToBeShown = pendingViewControllers.first!
-        if let segmentViewController = viewControllerToBeShown as? SegmentChartViewController {
-            segmentViewController.chartMode = self.chartMode
-        } else {
-            guard let pieVC = viewControllerToBeShown as? PieChartViewController else { fatalError("Unknown View Controller") }
-            pieVC.chartMode = self.chartMode
-        }
-    }
     
 //    func presentationCount(for pageViewController: UIPageViewController) -> Int {
 //        return 2
@@ -142,18 +108,13 @@ class StatisticsViewController: UIViewController, UIPageViewControllerDelegate, 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        
-        if let pvc = segue.destination as? UIPageViewController {
-            pageViewController = pvc
-            pvc.delegate = self
-            pvc.dataSource = self
-            
-            let segmentVC = self.storyboard!.instantiateViewController(withIdentifier: "SegmentChartVC")
-            
-            pvc.setViewControllers([segmentVC], direction: UIPageViewControllerNavigationDirection.forward, animated: true, completion: nil)
-            
+        if let segmentVC = segue.destination as? SegmentChartViewController {
+            self.segmentController = segmentVC
+        } else if let pieVC = segue.destination as? PieChartViewController {
+            self.pieController = pieVC
+        } else {
+            fatalError("Unknown segue")
         }
     }
- 
 
 }

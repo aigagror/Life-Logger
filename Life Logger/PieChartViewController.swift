@@ -8,9 +8,11 @@
 
 import UIKit
 
-class PieChartViewController: UIViewController {
+class PieChartViewController: UIViewController, ChartDelegate {
 
     // MARK: Properties
+    
+    
     var chartMode: TimeMode = .day {
         didSet {
             switch chartMode {
@@ -26,11 +28,13 @@ class PieChartViewController: UIViewController {
         }
     }
     @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var activityLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        pieChartView.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -38,6 +42,19 @@ class PieChartViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    // MARK: Chart Delegation
+    func userWantsToSee(activity: Activity, forTime time: TimeInterval) -> Void {
+        let name = activity.name!
+        activityLabel.text = "\(name) - \(time.formatString())"
+    }
+    
+    func userTouchedUnknownTimeSection() {
+        activityLabel.text = "Unknown"
+    }
+    
+    func userStoppedTouching() {
+        activityLabel.text = "Unknown"
+    }
 
     /*
     // MARK: - Navigation

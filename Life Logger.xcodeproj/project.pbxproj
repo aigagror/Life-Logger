@@ -19,6 +19,7 @@
 		2C7E841F1F43DD7700047F7B /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E841E1F43DD7700047F7B /* PieChartViewController.swift */; };
 		2C7E84211F44B19F00047F7B /* TimeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E84201F44B19F00047F7B /* TimeMode.swift */; };
 		2C7E84231F44BD3B00047F7B /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E84221F44BD3B00047F7B /* PieChartView.swift */; };
+		2C7E84281F45203E00047F7B /* ChartDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E84271F45203E00047F7B /* ChartDelegate.swift */; };
 		2CB329AB1F3FDBA70056A268 /* DatabaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329AA1F3FDBA70056A268 /* DatabaseController.swift */; };
 		2CB329AD1F3FDD890056A268 /* ActivitiesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329AC1F3FDD890056A268 /* ActivitiesTableViewController.swift */; };
 		2CB329B31F3FE7220056A268 /* LogTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB329B21F3FE7220056A268 /* LogTableViewController.swift */; };
@@ -48,6 +49,7 @@
 		2C7E841E1F43DD7700047F7B /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		2C7E84201F44B19F00047F7B /* TimeMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMode.swift; sourceTree = "<group>"; };
 		2C7E84221F44BD3B00047F7B /* PieChartView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		2C7E84271F45203E00047F7B /* ChartDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartDelegate.swift; sourceTree = "<group>"; };
 		2CB329AA1F3FDBA70056A268 /* DatabaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseController.swift; sourceTree = "<group>"; };
 		2CB329AC1F3FDD890056A268 /* ActivitiesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivitiesTableViewController.swift; sourceTree = "<group>"; };
 		2CB329B21F3FE7220056A268 /* LogTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogTableViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				2CB329F21F425D6A0056A268 /* SegmentChartView.swift */,
 				2C7E841E1F43DD7700047F7B /* PieChartViewController.swift */,
 				2C7E84221F44BD3B00047F7B /* PieChartView.swift */,
+				2C7E84271F45203E00047F7B /* ChartDelegate.swift */,
 				2C7E84201F44B19F00047F7B /* TimeMode.swift */,
 			);
 			name = Statistics;
@@ -233,6 +236,7 @@
 				2C7E841F1F43DD7700047F7B /* PieChartViewController.swift in Sources */,
 				2C12C30C1F3F785D001C2B36 /* LoggerViewController.swift in Sources */,
 				2CB329F71F4360EB0056A268 /* LogViewController.swift in Sources */,
+				2C7E84281F45203E00047F7B /* ChartDelegate.swift in Sources */,
 				2CB329BB1F40CAA80056A268 /* TimeInterval.swift in Sources */,
 				2CB329E71F4245470056A268 /* ActivityColor.swift in Sources */,
 				2CB329EB1F42504F0056A268 /* Activities.xcdatamodeld in Sources */,
