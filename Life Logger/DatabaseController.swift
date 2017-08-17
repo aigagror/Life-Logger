@@ -72,7 +72,10 @@ class DatabaseController {
         let fetchRequest: NSFetchRequest<Activity> = Activity.fetchRequest()
         
         do {
-            let searchResults = try getContext().fetch(fetchRequest)
+            var searchResults = try getContext().fetch(fetchRequest)
+            searchResults.sort(by: { (a1, a2) -> Bool in
+                return a1.logs!.count > a2.logs!.count
+            })
             return searchResults
         }
         catch {

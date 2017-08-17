@@ -29,7 +29,6 @@ final class ActivityColor {
         return getName(index: Int16(index))
     }
     
-    
     static func getName(index: Int16) -> String {
         switch index {
         case 0:

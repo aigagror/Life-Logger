@@ -12,13 +12,21 @@ class SegmentChartViewController: UIViewController, UITableViewDelegate, UITable
     
     
     // MARK: Properties
+    var startHour = 0
+    var endHour = 24
+    
     var chartMode: TimeMode = .day {
         didSet {
             self.tableView.reloadData()
         }
     }
-
+    
+    @IBOutlet weak var startHourLabel: UILabel!
+    @IBOutlet weak var endHourLabel: UILabel!
+    
     @IBOutlet weak var logLabel: UILabel!
+    @IBOutlet weak var logDetailLabel: UILabel!
+    
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -28,6 +36,12 @@ class SegmentChartViewController: UIViewController, UITableViewDelegate, UITable
         tableView.allowsSelection = false
         tableView.dataSource = self
         tableView.delegate = self
+        
+        startHour = UserDefaults.standard.integer(forKey: "SegmentChartStartHour")
+        endHour = UserDefaults.standard.integer(forKey: "SegmentChartEndHour")
+        
+        startHourLabel.text = startHour.getHourString()
+        endHourLabel.text = endHour.getHourString()
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +61,8 @@ class SegmentChartViewController: UIViewController, UITableViewDelegate, UITable
         
         segmentChartView.dayOffSet = indexPath.row
         segmentChartView.delegate = self
+        segmentChartView.startingHour = startHour
+        segmentChartView.endingHour = endHour
         
         return cell
     }
@@ -82,26 +98,50 @@ class SegmentChartViewController: UIViewController, UITableViewDelegate, UITable
         } else {
             endTime = dateFormatter.string(from: Date())
         }
-        logLabel.text = "\(activityName): \(startTime) - \(endTime)"
+        logLabel.text = "\(activityName)"
+        logDetailLabel.text = "\(startTime) - \(endTime)"
     }
     
     func userTouchedUnknownTimeSection() {
         logLabel.text = "Unknown"
+        logDetailLabel.text = ""
     }
     
     func userStoppedTouching() {
         logLabel.text = "-"
+        logDetailLabel.text = "-"
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        guard let scsvc = segue.destination as? SegmentChartSettingsViewController else {
+            fatalError("Could not get segmentchartsettingsviewcontroller")
+        }
+        scsvc.startHour = self.startHour
+        scsvc.endHour = self.endHour
     }
-    */
+ 
+    
+    // MARK: Actions
+    
+    @IBAction func unwindToSegmentVC(sender: UIStoryboardSegue) {
+        guard let scsvc = sender.source as? SegmentChartSettingsViewController else {
+            fatalError("Could not get segmentchartsettingsviewcontroller")
+        }
+        
+        self.startHour = scsvc.startHour
+        self.endHour = scsvc.endHour
+        UserDefaults.standard.set(self.startHour, forKey: "SegmentChartStartHour")
+        UserDefaults.standard.set(self.endHour, forKey: "SegmentChartEndHour")
+        self.tableView.reloadData()
+        self.startHourLabel.text = self.startHour.getHourString()
+        self.endHourLabel.text = self.endHour.getHourString()
+    }
 
 }

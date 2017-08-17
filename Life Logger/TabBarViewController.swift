@@ -20,7 +20,11 @@ class TabBarViewController: UITabBarController {
         if !UserDefaults.standard.bool(forKey: notFirstTimeLoadingKey) {
             UserDefaults.standard.set(true, forKey: notFirstTimeLoadingKey)
             loadSampleActivities()
+            UserDefaults.standard.set(0, forKey: "SegmentChartStartHour")
+            UserDefaults.standard.set(24, forKey: "SegmentChartEndHour")
         }
+        
+        
         
         // Reset everything
         let reset = false

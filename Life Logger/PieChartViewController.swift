@@ -29,6 +29,7 @@ class PieChartViewController: UIViewController, ChartDelegate {
     }
     @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var activityLabel: UILabel!
+    @IBOutlet weak var activityDetailLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,15 +46,18 @@ class PieChartViewController: UIViewController, ChartDelegate {
     // MARK: Chart Delegation
     func userWantsToSee(activity: Activity, forTime time: TimeInterval) -> Void {
         let name = activity.name!
-        activityLabel.text = "\(name) - \(time.formatString())"
+        activityLabel.text = "\(name)"
+        activityDetailLabel.text = "\(time.formatString())"
     }
     
     func userTouchedUnknownTimeSection() {
         activityLabel.text = "Unknown"
+        activityDetailLabel.text = ""
     }
     
     func userStoppedTouching() {
         activityLabel.text = "-"
+        activityDetailLabel.text = "-"
     }
 
     /*
