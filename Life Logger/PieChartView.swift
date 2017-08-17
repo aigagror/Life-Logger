@@ -99,7 +99,7 @@ class PieChartView: UIView {
             
             // add data to activity paths and times
             activityPaths[activityTime.key] = slicePath
-            activityTimes[activityTime.key] = TimeInterval(activityTime.value) * TimeInterval(numberOfSecondsInADay)
+            activityTimes[activityTime.key] = TimeInterval(activityTime.value) * TimeInterval(numberOfSecondsInADay) * TimeInterval(numberOfDays)
         }
     }
     

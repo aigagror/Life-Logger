@@ -53,7 +53,7 @@ class PieChartViewController: UIViewController, ChartDelegate {
     }
     
     func userStoppedTouching() {
-        activityLabel.text = "Unknown"
+        activityLabel.text = "-"
     }
 
     /*
