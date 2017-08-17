@@ -54,8 +54,8 @@
                                                 </constraints>
                                             </stackView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rmD-D9-bUP">
-                                                <rect key="frame" x="114.5" y="80" width="71.5" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <rect key="frame" x="114.5" y="80" width="71" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -70,18 +70,19 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Xoc-fW-iQB">
-                                        <rect key="frame" x="155.5" y="388" width="64" height="110"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Xoc-fW-iQB">
+                                        <rect key="frame" x="147" y="402" width="81" height="96"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GNL-Ve-yUm">
-                                                <rect key="frame" x="0.0" y="0.0" width="64" height="30"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="81" height="36"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                                 <state key="normal" title="New Log"/>
                                                 <connections>
                                                     <segue destination="u2t-fF-gqk" kind="presentation" id="gZd-au-Dxr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Qe-tA-AWq">
-                                                <rect key="frame" x="0.0" y="80" width="64" height="30"/>
+                                                <rect key="frame" x="0.0" y="66" width="81" height="30"/>
                                                 <state key="normal" title="Edit Logs"/>
                                                 <connections>
                                                     <segue destination="ccv-to-YUC" kind="presentation" id="vW4-VF-IXT"/>
@@ -229,7 +230,7 @@
                                         <rect key="frame" x="50" y="30.5" width="243" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                         <connections>
                                             <outlet property="delegate" destination="EYD-lA-nzs" id="Bf8-If-jtu"/>
                                         </connections>
@@ -718,20 +719,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="337.5" height="383"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="eC8-zz-gpZ">
-                                <rect key="frame" x="-10.5" y="0.5" width="358.5" height="383"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eC8-zz-gpZ">
+                                <rect key="frame" x="-5.5" y="0.5" width="348.5" height="383"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z3d-Me-PYt">
-                                        <rect key="frame" x="0.0" y="0.0" width="358.5" height="25"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="348.5" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="8fK-Qk-DTL"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ecz-gB-RpE" customClass="PieChartView" customModule="Life_Logger" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="25" width="358.5" height="358"/>
+                                        <rect key="frame" x="0.0" y="35" width="348.5" height="348"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="ecz-gB-RpE" secondAttribute="height" multiplier="1:1" id="Y0U-Ic-xQn"/>
@@ -777,7 +778,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="Xfd-ur-DDt"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
