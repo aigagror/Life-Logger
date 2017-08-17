@@ -62,6 +62,33 @@ class SegmentChartView: UIView {
             segmentPath.fill()
         }
         
+        
+        // Draw tick marks to help evaluate measurements
+        let numberOfTickMarks = endingHour - startingHour - 1
+        
+        assert(numberOfTickMarks >= 0)
+        
+        if numberOfTickMarks > 0 {
+            
+            let bottom: CGFloat = self.bounds.height
+            let distanceBetweenTicks = self.bounds.width / CGFloat(numberOfTickMarks + 1)
+            let tickPath = UIBezierPath()
+            for i in 1...numberOfTickMarks {
+                let tickHeight: CGFloat
+                if (i - startingHour) % 3 == 0 {
+                    tickHeight = 8.0
+                } else {
+                    tickHeight = 5.0
+                }
+                let bottomPoint = CGPoint(x: CGFloat(i) * distanceBetweenTicks, y: bottom)
+                let topPoint = CGPoint(x: CGFloat(i) * distanceBetweenTicks, y: bottom - tickHeight)
+                tickPath.move(to: bottomPoint)
+                tickPath.addLine(to: topPoint)
+            }
+            tickPath.lineWidth = 1.0
+            UIColor.white.setStroke()
+            tickPath.stroke()
+        }
     }
     
     /// Given a log, return where the beginning and end of the segment should lie in terms of percentages
