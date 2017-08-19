@@ -14,6 +14,7 @@
 		2C12C31E1F3F7E34001C2B36 /* ActivityChooserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12C31D1F3F7E34001C2B36 /* ActivityChooserTableViewController.swift */; };
 		2C12C3201F3F859A001C2B36 /* ColorChooserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12C31F1F3F859A001C2B36 /* ColorChooserTableViewController.swift */; };
 		2C12C3221F3F85E1001C2B36 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12C3211F3F85E1001C2B36 /* ActivityViewController.swift */; };
+		2C1DCF681F48D41A00166180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C1DCF671F48D41A00166180 /* Assets.xcassets */; };
 		2C7E841D1F43DD5C00047F7B /* SegmentChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E841C1F43DD5C00047F7B /* SegmentChartViewController.swift */; };
 		2C7E841F1F43DD7700047F7B /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E841E1F43DD7700047F7B /* PieChartViewController.swift */; };
 		2C7E84211F44B19F00047F7B /* TimeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E84201F44B19F00047F7B /* TimeMode.swift */; };
@@ -46,6 +47,7 @@
 		2C12C31F1F3F859A001C2B36 /* ColorChooserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorChooserTableViewController.swift; sourceTree = "<group>"; };
 		2C12C3211F3F85E1001C2B36 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		2C1DCF661F48BF6B00166180 /* App Icon.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "App Icon.playground"; sourceTree = "<group>"; };
+		2C1DCF671F48D41A00166180 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C7E841C1F43DD5C00047F7B /* SegmentChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentChartViewController.swift; sourceTree = "<group>"; };
 		2C7E841E1F43DD7700047F7B /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		2C7E84201F44B19F00047F7B /* TimeMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMode.swift; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 				2CB329F01F425B270056A268 /* Statistics */,
 				2CB329BA1F40CAA80056A268 /* TimeInterval.swift */,
 				2C7E842B1F4631E000047F7B /* Int.swift */,
+				2C1DCF671F48D41A00166180 /* Assets.xcassets */,
 				2C1DCF661F48BF6B00166180 /* App Icon.playground */,
 				2CB329E51F4241310056A268 /* Color Icon.playground */,
 				2C12C3141F3F785D001C2B36 /* LaunchScreen.storyboard */,
@@ -216,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C12C3161F3F785D001C2B36 /* LaunchScreen.storyboard in Resources */,
+				2C1DCF681F48D41A00166180 /* Assets.xcassets in Resources */,
 				2C12C3111F3F785D001C2B36 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

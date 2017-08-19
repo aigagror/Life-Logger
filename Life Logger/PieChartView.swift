@@ -60,22 +60,38 @@ class PieChartView: UIView {
         activityPaths = [:]
         activityTimes = [:]
         
-        let radius = min(self.bounds.height, self.bounds.width) / 2
+        let minLength = min(self.bounds.height, self.bounds.width)
         
-        let circumscribingRect = CGRect(origin: .zero, size: CGSize(width: radius*2, height: radius*2))
+        // Shadows
+        let context = UIGraphicsGetCurrentContext()
+        let shadow: UIColor = UIColor.black.withAlphaComponent(0.50)
+        let shadowOffset = CGSize(width: 0.0, height: 5)
+        let shadowBlurRadius: CGFloat = 5
+        
+        context?.setShadow(offset: shadowOffset, blur: shadowBlurRadius, color: shadow.cgColor)
+        
+        let π = CGFloat(Double.pi)
+        
+        
+        let radius = minLength / 2 * 0.9
+        let innerRadius = radius * 0.6
+        let lineWidth = radius - innerRadius
+
+        let center = CGPoint(x: minLength / 2, y: minLength / 2)
+
+        let circumscribingRect = CGRect(origin: CGPoint.init(x: minLength/2 - radius + lineWidth / 2, y: minLength/2 - radius + lineWidth / 2), size: CGSize(width: (radius + innerRadius), height: (radius + innerRadius)))
         
         let circleOutline = UIBezierPath(ovalIn: circumscribingRect)
+        circleOutline.lineWidth = lineWidth
         
-        UIColor.gray.setFill()
-        circleOutline.fill()
-        circleOutline.addClip()
+        UIColor.lightGray.set()
+        circleOutline.stroke()
         
         let activityProportions = getProportions().sorted { (key1, key2) -> Bool in
             return key1.value > key2.value
         }
         
-        let π = CGFloat(Double.pi)
-        let center = CGPoint(x: radius, y: radius)
+        
         
         var currentAngle = -π / 2
         for activityTime in activityProportions {
@@ -84,10 +100,19 @@ class PieChartView: UIView {
             let delta = 2 * π * proportion
             
             let slicePath = UIBezierPath(arcCenter: center, radius: radius, startAngle: currentAngle, endAngle: currentAngle + delta, clockwise: true)
+            print(slicePath.currentPoint)
             
-            slicePath.addLine(to: center)
-            slicePath.move(to: center)
+            let innerSlicePath = UIBezierPath(arcCenter: center, radius: innerRadius, startAngle: currentAngle, endAngle: currentAngle + delta, clockwise: true)
+            let innerSlicePathReversed = innerSlicePath.reversing()
+            
+            slicePath.addLine(to: innerSlicePath.currentPoint)
+            print(slicePath.currentPoint)
+            
+            slicePath.addArc(withCenter: center, radius: innerRadius, startAngle: currentAngle + delta, endAngle: currentAngle, clockwise: false)
+            
+            print(slicePath.currentPoint)
             slicePath.close()
+            print(slicePath.currentPoint)
             
             let colorIndex = activityTime.key.color
             let color = ActivityColor.getColor(index: colorIndex)

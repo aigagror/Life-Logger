@@ -62,6 +62,14 @@ class SegmentChartView: UIView {
         logs = DatabaseController.loadLogs()!
         logPaths = [:]
         
+        // Shadows
+        let context = UIGraphicsGetCurrentContext()
+        let shadow: UIColor = UIColor.black.withAlphaComponent(0.50)
+        let shadowOffset = CGSize(width: 0.0, height: 5)
+        let shadowBlurRadius: CGFloat = 5
+        
+        context?.setShadow(offset: shadowOffset, blur: shadowBlurRadius, color: shadow.cgColor)
+        
         UIColor.gray.setFill()
         let outlinePath = UIBezierPath(roundedRect: self.bounds, cornerRadius: 5.0)
         outlinePath.addClip()

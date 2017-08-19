@@ -38,7 +38,7 @@ activityProportions.sort { (kv1, kv2) -> Bool in
 func createImageIcon(resolution: Double, multiplier: Int) -> UIImage {
     let backgroundStrokeColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     
-    let frameLength: CGFloat = CGFloat(resolution * Double(multiplier))
+    let frameLength: CGFloat = CGFloat(resolution * Double(multiplier) / 2)
     let lineWidth: CGFloat = frameLength * 0.1
     let radius: CGFloat = (frameLength - lineWidth*2) / 2
     
@@ -49,6 +49,11 @@ func createImageIcon(resolution: Double, multiplier: Int) -> UIImage {
     
     UIGraphicsBeginImageContextWithOptions(imageSize, false, 0.0)
     let context = UIGraphicsGetCurrentContext()
+    
+    let background = CGRect(origin: .zero, size: imageSize)
+    let backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+    backgroundColor.set()
+    context?.fill(background)
     
     // Shadows
     let shadow: UIColor = UIColor.black.withAlphaComponent(0.50)

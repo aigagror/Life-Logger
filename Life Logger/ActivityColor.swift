@@ -72,7 +72,13 @@ final class ActivityColor {
         let circleSize = CGSize(width: 80, height: 80)
         
         UIGraphicsBeginImageContextWithOptions(imageSize, false, 0.0)
-//        let context = UIGraphicsGetCurrentContext()
+        
+        // Shadows
+        let context = UIGraphicsGetCurrentContext()
+        let shadow: UIColor = UIColor.black.withAlphaComponent(0.50)
+        let shadowOffset = CGSize(width: 0.0, height: 5)
+        let shadowBlurRadius: CGFloat = 5
+        context?.setShadow(offset: shadowOffset, blur: shadowBlurRadius, color: shadow.cgColor)
         
         let circlePath = UIBezierPath(ovalIn: CGRect(origin: CGPoint(x:10,y:60), size: circleSize))
         fillColor.setFill()
