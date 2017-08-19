@@ -1,6 +1,7 @@
 //: Playground - noun: a place where people can play
 
 import UIKit
+import XCPlayground
 
 let fillColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
 let strokeColor = #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)
@@ -24,3 +25,13 @@ circlePath.stroke()
 // This code must always be at the end of the playground
 let image = UIGraphicsGetImageFromCurrentImageContext()
 UIGraphicsEndImageContext()
+
+//let fileURL = XCPlaygroundSharedDataDirectoryURL.appendingPathComponent("icon.png")!
+//
+//do {
+//    try UIImagePNGRepresentation(image!)?.write(to: fileURL)
+//} catch {
+//    print(error)
+//}
+
+

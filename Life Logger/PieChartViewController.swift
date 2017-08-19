@@ -28,6 +28,8 @@ class PieChartViewController: UIViewController, ChartDelegate {
         }
     }
     @IBOutlet weak var pieChartView: PieChartView!
+    
+    @IBOutlet weak var colorIconView: UIImageView!
     @IBOutlet weak var activityLabel: UILabel!
     @IBOutlet weak var activityDetailLabel: UILabel!
     
@@ -36,6 +38,13 @@ class PieChartViewController: UIViewController, ChartDelegate {
 
         // Do any additional setup after loading the view.
         pieChartView.delegate = self
+        colorIconView.image = ActivityColor.getImage(index: -1)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if chartMode == .day {
+            pieChartView.setNeedsDisplay()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,18 +55,21 @@ class PieChartViewController: UIViewController, ChartDelegate {
     // MARK: Chart Delegation
     func userWantsToSee(activity: Activity, forTime time: TimeInterval) -> Void {
         let name = activity.name!
+        colorIconView.image = ActivityColor.getImage(index: activity.color)
         activityLabel.text = "\(name)"
         activityDetailLabel.text = "\(time.formatString())"
     }
     
     func userTouchedUnknownTimeSection() {
+        colorIconView.image = ActivityColor.getImage(index: -1)
         activityLabel.text = "Unknown"
         activityDetailLabel.text = ""
     }
     
     func userStoppedTouching() {
+        colorIconView.image = ActivityColor.getImage(index: -1)
         activityLabel.text = "-"
-        activityDetailLabel.text = "-"
+        activityDetailLabel.text = ""
     }
 
     /*

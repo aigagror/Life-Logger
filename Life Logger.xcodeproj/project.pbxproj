@@ -10,7 +10,6 @@
 		2C12C30A1F3F785D001C2B36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12C3091F3F785D001C2B36 /* AppDelegate.swift */; };
 		2C12C30C1F3F785D001C2B36 /* LoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12C30B1F3F785D001C2B36 /* LoggerViewController.swift */; };
 		2C12C3111F3F785D001C2B36 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C12C30F1F3F785D001C2B36 /* Main.storyboard */; };
-		2C12C3131F3F785D001C2B36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C12C3121F3F785D001C2B36 /* Assets.xcassets */; };
 		2C12C3161F3F785D001C2B36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C12C3141F3F785D001C2B36 /* LaunchScreen.storyboard */; };
 		2C12C31E1F3F7E34001C2B36 /* ActivityChooserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12C31D1F3F7E34001C2B36 /* ActivityChooserTableViewController.swift */; };
 		2C12C3201F3F859A001C2B36 /* ColorChooserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12C31F1F3F859A001C2B36 /* ColorChooserTableViewController.swift */; };
@@ -41,12 +40,12 @@
 		2C12C3091F3F785D001C2B36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2C12C30B1F3F785D001C2B36 /* LoggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerViewController.swift; sourceTree = "<group>"; };
 		2C12C3101F3F785D001C2B36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		2C12C3121F3F785D001C2B36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C12C3151F3F785D001C2B36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2C12C3171F3F785D001C2B36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C12C31D1F3F7E34001C2B36 /* ActivityChooserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityChooserTableViewController.swift; sourceTree = "<group>"; };
 		2C12C31F1F3F859A001C2B36 /* ColorChooserTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorChooserTableViewController.swift; sourceTree = "<group>"; };
 		2C12C3211F3F85E1001C2B36 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		2C1DCF661F48BF6B00166180 /* App Icon.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "App Icon.playground"; sourceTree = "<group>"; };
 		2C7E841C1F43DD5C00047F7B /* SegmentChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentChartViewController.swift; sourceTree = "<group>"; };
 		2C7E841E1F43DD7700047F7B /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		2C7E84201F44B19F00047F7B /* TimeMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMode.swift; sourceTree = "<group>"; };
@@ -109,8 +108,8 @@
 				2CB329F01F425B270056A268 /* Statistics */,
 				2CB329BA1F40CAA80056A268 /* TimeInterval.swift */,
 				2C7E842B1F4631E000047F7B /* Int.swift */,
+				2C1DCF661F48BF6B00166180 /* App Icon.playground */,
 				2CB329E51F4241310056A268 /* Color Icon.playground */,
-				2C12C3121F3F785D001C2B36 /* Assets.xcassets */,
 				2C12C3141F3F785D001C2B36 /* LaunchScreen.storyboard */,
 				2C12C3171F3F785D001C2B36 /* Info.plist */,
 			);
@@ -217,7 +216,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C12C3161F3F785D001C2B36 /* LaunchScreen.storyboard in Resources */,
-				2C12C3131F3F785D001C2B36 /* Assets.xcassets in Resources */,
 				2C12C3111F3F785D001C2B36 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

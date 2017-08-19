@@ -24,6 +24,8 @@ class SegmentChartViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var startHourLabel: UILabel!
     @IBOutlet weak var endHourLabel: UILabel!
     
+    
+    @IBOutlet weak var colorIconView: UIImageView!
     @IBOutlet weak var logLabel: UILabel!
     @IBOutlet weak var logDetailLabel: UILabel!
     
@@ -42,6 +44,12 @@ class SegmentChartViewController: UIViewController, UITableViewDelegate, UITable
         
         startHourLabel.text = startHour.getHourString()
         endHourLabel.text = endHour.getHourString()
+        
+        colorIconView.image = ActivityColor.getImage(index: -1)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadRows(at: [IndexPath.init(row: 0, section: 0)], with: .none)
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,18 +106,22 @@ class SegmentChartViewController: UIViewController, UITableViewDelegate, UITable
         } else {
             endTime = dateFormatter.string(from: Date())
         }
+        
+        colorIconView.image = ActivityColor.getImage(index: log.activity!.color)
         logLabel.text = "\(activityName)"
         logDetailLabel.text = "\(startTime) - \(endTime)"
     }
     
     func userTouchedUnknownTimeSection() {
+        colorIconView.image = ActivityColor.getImage(index: -1)
         logLabel.text = "Unknown"
         logDetailLabel.text = ""
     }
     
     func userStoppedTouching() {
+        colorIconView.image = ActivityColor.getImage(index: -1)
         logLabel.text = "-"
-        logDetailLabel.text = "-"
+        logDetailLabel.text = ""
     }
     
 
