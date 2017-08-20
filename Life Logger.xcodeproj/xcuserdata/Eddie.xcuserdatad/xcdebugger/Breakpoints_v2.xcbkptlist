@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Life Logger/ActivitiesTableViewController.swift"
-            timestampString = "524440149.867563"
+            timestampString = "524887401.368028"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "unwindToActivityList(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Life Logger/ActivitiesTableViewController.swift"
-            timestampString = "524440149.867563"
+            timestampString = "524886804.24549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -461,22 +461,6 @@
             timestampString = "524870149.393642"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "103"
-            endingLineNumber = "103"
-            landmarkName = "draw(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Life Logger/PieChartView.swift"
-            timestampString = "524870149.393642"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
             startingLineNumber = "101"
             endingLineNumber = "101"
             landmarkName = "draw(_:)"
@@ -506,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Life Logger/PieChartView.swift"
-            timestampString = "524870149.393642"
+            timestampString = "524886344.307666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
             landmarkName = "draw(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -694,15 +678,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Life Logger/PieChartView.swift"
-            timestampString = "524870149.393642"
+            timestampString = "524886344.307666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "draw(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -714,7 +698,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Life Logger/PieChartView.swift"
-            timestampString = "524870149.393642"
+            timestampString = "524886344.307666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "110"
@@ -730,11 +714,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Life Logger/PieChartView.swift"
-            timestampString = "524870149.393642"
+            timestampString = "524886344.307666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "114"
-            endingLineNumber = "114"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "draw(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -746,27 +730,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Life Logger/PieChartView.swift"
-            timestampString = "524870149.393642"
+            timestampString = "524886344.307666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
-            landmarkName = "draw(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Life Logger/PieChartView.swift"
-            timestampString = "524870149.393642"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "108"
-            endingLineNumber = "108"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "draw(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -778,11 +746,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Life Logger/PieChartView.swift"
-            timestampString = "524870149.393642"
+            timestampString = "524886344.307666"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "draw(_:)"
             landmarkType = "7">
          </BreakpointContent>

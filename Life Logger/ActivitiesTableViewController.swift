@@ -82,12 +82,25 @@ class ActivitiesTableViewController: UITableViewController {
         if editingStyle == .delete {
             // Delete the row from the data source
             
-            let activity = activities[indexPath.row]
-            activities.remove(at: indexPath.row)
-            let context = DatabaseController.getContext()
-            context.delete(activity)
-            DatabaseController.saveContext()
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            // Present an alert to confirm 
+            let alert = UIAlertController(title: "Are you sure you want to delete this activity", message: "All of the associated logs will be permanently deleted", preferredStyle: .alert)
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            let reset = UIAlertAction(title: "Delete", style: .destructive) {
+                action in
+                let activity = self.activities[indexPath.row]
+                self.activities.remove(at: indexPath.row)
+                let context = DatabaseController.getContext()
+                context.delete(activity)
+                DatabaseController.saveContext()
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            
+            alert.addAction(cancel)
+            alert.addAction(reset)
+            
+            self.present(alert, animated: true, completion: nil)
+            
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
@@ -131,6 +144,8 @@ class ActivitiesTableViewController: UITableViewController {
             
             let selectedActivity = activities[indexPath.row]
             activityDetailViewController.activity = selectedActivity
+        case "NotificationSettings":
+            break
         default:
             fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
         }

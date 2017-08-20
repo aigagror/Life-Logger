@@ -150,6 +150,25 @@
       "scale" : "2x",
       "role" : "quickLook",
       "subtype" : "42mm"
+    },
+    {
+      "size" : "20x20",
+      "idiom" : "iphone",
+      "filename" : "appIcon-60.png",
+      "unassigned" : true,
+      "scale" : "3x"
+    },
+    {
+      "filename" : "appIcon-76@3x.png",
+      "unassigned" : true
+    },
+    {
+      "filename" : "appIcon-83.5.png",
+      "unassigned" : true
+    },
+    {
+      "filename" : "appIcon-83.5@3x.png",
+      "unassigned" : true
     }
   ],
   "info" : {

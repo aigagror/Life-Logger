@@ -51,7 +51,7 @@ func createImageIcon(resolution: Double, multiplier: Int) -> UIImage {
     let context = UIGraphicsGetCurrentContext()
     
     let background = CGRect(origin: .zero, size: imageSize)
-    let backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+    let backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     backgroundColor.set()
     context?.fill(background)
     

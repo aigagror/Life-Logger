@@ -115,7 +115,7 @@ class SegmentChartView: UIView {
             let tickPath = UIBezierPath()
             for i in 1...numberOfTickMarks {
                 let tickHeight: CGFloat
-                if (i - startingHour) % 3 == 0 {
+                if (startingHour + i) % 3 == 0 {
                     tickHeight = 8.0
                 } else {
                     tickHeight = 5.0

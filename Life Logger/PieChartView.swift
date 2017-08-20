@@ -100,19 +100,14 @@ class PieChartView: UIView {
             let delta = 2 * π * proportion
             
             let slicePath = UIBezierPath(arcCenter: center, radius: radius, startAngle: currentAngle, endAngle: currentAngle + delta, clockwise: true)
-            print(slicePath.currentPoint)
             
             let innerSlicePath = UIBezierPath(arcCenter: center, radius: innerRadius, startAngle: currentAngle, endAngle: currentAngle + delta, clockwise: true)
-            let innerSlicePathReversed = innerSlicePath.reversing()
             
             slicePath.addLine(to: innerSlicePath.currentPoint)
-            print(slicePath.currentPoint)
             
             slicePath.addArc(withCenter: center, radius: innerRadius, startAngle: currentAngle + delta, endAngle: currentAngle, clockwise: false)
             
-            print(slicePath.currentPoint)
             slicePath.close()
-            print(slicePath.currentPoint)
             
             let colorIndex = activityTime.key.color
             let color = ActivityColor.getColor(index: colorIndex)
