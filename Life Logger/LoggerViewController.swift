@@ -30,6 +30,13 @@ class LoggerViewController: UIViewController, ActivityChooserDelegate {
             currentLog.dateEnded = NSDate()
             DatabaseController.saveContext()
         }
+        
+        let center = UNUserNotificationCenter.current()
+        
+        // Remove old notifications
+        center.removeAllPendingNotificationRequests()
+        center.removeAllDeliveredNotifications()
+                
         updateActivity()
     }
     

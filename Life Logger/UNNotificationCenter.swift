@@ -46,7 +46,18 @@ extension UNUserNotificationCenter {
             
             let content = UNMutableNotificationContent()
             content.title = "Log Report"
-            content.body = "You have logged \(activity.name!) for \(minutes * i) minutes"
+            
+            let minutesLogged = minutes * i
+            let hoursLogged = minutesLogged / 60
+            content.body = "You have logged \(activity.name!) for"
+            if hoursLogged > 0 {
+                content.body += " \(hoursLogged) hour" + (hoursLogged == 1 ? "" : "s")
+                if minutesLogged % 60 > 0 {
+                    content.body += " and \(minutesLogged % 60) minute" + (minutesLogged % 60 == 1 ? "" : "s")
+                }
+            } else {
+                content.body += "\(minutesLogged % 60) minute" + (minutesLogged % 60 == 1 ? "" : "s")
+            }
             content.sound = UNNotificationSound.default()
             
             // Configure the trigger to fire every hour
