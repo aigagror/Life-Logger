@@ -257,6 +257,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="tBO-x5-L0a"/>
                     <connections>
                         <outlet property="timeLabel" destination="jVq-qm-CIf" id="Cq9-Q2-q9D"/>
+                        <outlet property="timeStepper" destination="Bvn-kw-gnW" id="xtU-j7-8Yc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X9h-I0-9Br" userLabel="First Responder" sceneMemberID="firstResponder"/>

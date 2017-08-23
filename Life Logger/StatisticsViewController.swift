@@ -39,6 +39,11 @@ class StatisticsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        segmentController.tableView.reloadData()
+        pieController.pieChartView.setNeedsDisplay()
+    }
 
     // MARK: SegmentControl Delegation
     

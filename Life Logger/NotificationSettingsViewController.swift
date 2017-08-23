@@ -15,6 +15,7 @@ class NotificationSettingsViewController: UIViewController {
     
     
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var timeStepper: UIStepper!
     
     @IBAction func valueChanged(_ sender: UIStepper) {
         UserDefaults.standard.set(Int(sender.value), forKey: UserDefaults.minutesReport)
@@ -42,7 +43,7 @@ class NotificationSettingsViewController: UIViewController {
         }
         
         
-        timeLabel.text = TimeInterval(sender.value * 60).formatStringMinutes()
+        timeLabel.text = sender.value == 0 ? "None" : TimeInterval(sender.value * 60).formatStringMinutes()
     }
 
     override func viewDidLoad() {
@@ -50,6 +51,7 @@ class NotificationSettingsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         let minutesReport = UserDefaults.standard.integer(forKey: UserDefaults.minutesReport)
+        timeStepper.value = Double(minutesReport)
         timeLabel.text = TimeInterval(minutesReport * 60).formatStringMinutes()
     }
 
