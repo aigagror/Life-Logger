@@ -42,6 +42,14 @@ class SegmentChartViewController: UIViewController, UITableViewDelegate, UITable
         startHour = UserDefaults.standard.integer(forKey: "SegmentChartStartHour")
         endHour = UserDefaults.standard.integer(forKey: "SegmentChartEndHour")
         
+        if startHour >= endHour {
+            // reset. (This should never occur)
+            startHour = 0
+            endHour = 24
+            UserDefaults.standard.set(0, forKey: "SegmentChartStartHour")
+            UserDefaults.standard.set(24, forKey: "SegmentChartEndHour")
+        }
+        
         startHourLabel.text = startHour.getHourString()
         endHourLabel.text = endHour.getHourString()
         

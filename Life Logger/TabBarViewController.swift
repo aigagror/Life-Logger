@@ -15,13 +15,13 @@ class TabBarViewController: UITabBarController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        let notFirstTimeLoadingKey = "notFirstTimeLoading"
         
-        if !UserDefaults.standard.bool(forKey: notFirstTimeLoadingKey) {
-            UserDefaults.standard.set(true, forKey: notFirstTimeLoadingKey)
+        if !UserDefaults.standard.bool(forKey: UserDefaults.notFirstTimeLoading) {
+            UserDefaults.standard.set(true, forKey: UserDefaults.notFirstTimeLoading)
             loadSampleActivities()
-            UserDefaults.standard.set(0, forKey: "SegmentChartStartHour")
-            UserDefaults.standard.set(24, forKey: "SegmentChartEndHour")
+            UserDefaults.standard.set(0, forKey: UserDefaults.segmentChartStartHour)
+            UserDefaults.standard.set(24, forKey: UserDefaults.segmentChartEndHour)
+            UserDefaults.standard.set(60, forKey: UserDefaults.minutesReport)
         }
         
         

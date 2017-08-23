@@ -70,10 +70,14 @@ class SegmentChartView: UIView {
         
         context?.setShadow(offset: shadowOffset, blur: shadowBlurRadius, color: shadow.cgColor)
         
-        UIColor.gray.setFill()
+        
+        UIColor.gray.setStroke()
+        UIColor.lightGray.setFill()
         let outlinePath = UIBezierPath(roundedRect: self.bounds, cornerRadius: 5.0)
         outlinePath.addClip()
+        outlinePath.lineWidth = 1.0
         outlinePath.fill()
+        outlinePath.stroke()
         
         let length = self.bounds.width
         

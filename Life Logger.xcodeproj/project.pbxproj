@@ -15,6 +15,9 @@
 		2C12C3201F3F859A001C2B36 /* ColorChooserTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12C31F1F3F859A001C2B36 /* ColorChooserTableViewController.swift */; };
 		2C12C3221F3F85E1001C2B36 /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C12C3211F3F85E1001C2B36 /* ActivityViewController.swift */; };
 		2C1DCF681F48D41A00166180 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C1DCF671F48D41A00166180 /* Assets.xcassets */; };
+		2C1DCF8C1F4B2E5200166180 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCF8B1F4B2E5200166180 /* UserDefaults.swift */; };
+		2C1DCF8E1F4B2FD100166180 /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCF8D1F4B2FD100166180 /* NotificationSettingsViewController.swift */; };
+		2C1DCF901F4D2D0800166180 /* UNNotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1DCF8F1F4D2D0800166180 /* UNNotificationCenter.swift */; };
 		2C7E841D1F43DD5C00047F7B /* SegmentChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E841C1F43DD5C00047F7B /* SegmentChartViewController.swift */; };
 		2C7E841F1F43DD7700047F7B /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E841E1F43DD7700047F7B /* PieChartViewController.swift */; };
 		2C7E84211F44B19F00047F7B /* TimeMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7E84201F44B19F00047F7B /* TimeMode.swift */; };
@@ -48,6 +51,9 @@
 		2C12C3211F3F85E1001C2B36 /* ActivityViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		2C1DCF661F48BF6B00166180 /* App Icon.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = "App Icon.playground"; sourceTree = "<group>"; };
 		2C1DCF671F48D41A00166180 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2C1DCF8B1F4B2E5200166180 /* UserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		2C1DCF8D1F4B2FD100166180 /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
+		2C1DCF8F1F4D2D0800166180 /* UNNotificationCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UNNotificationCenter.swift; sourceTree = "<group>"; };
 		2C7E841C1F43DD5C00047F7B /* SegmentChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SegmentChartViewController.swift; sourceTree = "<group>"; };
 		2C7E841E1F43DD7700047F7B /* PieChartViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		2C7E84201F44B19F00047F7B /* TimeMode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMode.swift; sourceTree = "<group>"; };
@@ -108,7 +114,9 @@
 				2CB329AE1F3FDDCA0056A268 /* Logging */,
 				2CB329AF1F3FDDD60056A268 /* Activities */,
 				2CB329F01F425B270056A268 /* Statistics */,
+				2C1DCF8F1F4D2D0800166180 /* UNNotificationCenter.swift */,
 				2CB329BA1F40CAA80056A268 /* TimeInterval.swift */,
+				2C1DCF8B1F4B2E5200166180 /* UserDefaults.swift */,
 				2C7E842B1F4631E000047F7B /* Int.swift */,
 				2C1DCF671F48D41A00166180 /* Assets.xcassets */,
 				2C1DCF661F48BF6B00166180 /* App Icon.playground */,
@@ -135,6 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				2CB329AC1F3FDD890056A268 /* ActivitiesTableViewController.swift */,
+				2C1DCF8D1F4B2FD100166180 /* NotificationSettingsViewController.swift */,
 				2C12C3211F3F85E1001C2B36 /* ActivityViewController.swift */,
 				2C12C31F1F3F859A001C2B36 /* ColorChooserTableViewController.swift */,
 				2CB329EC1F4253A50056A268 /* ColorChooserDelegate.swift */,
@@ -237,6 +246,7 @@
 				2C12C30A1F3F785D001C2B36 /* AppDelegate.swift in Sources */,
 				2CB329B71F40AAEA0056A268 /* TabBarViewController.swift in Sources */,
 				2C12C3201F3F859A001C2B36 /* ColorChooserTableViewController.swift in Sources */,
+				2C1DCF8C1F4B2E5200166180 /* UserDefaults.swift in Sources */,
 				2C7E84211F44B19F00047F7B /* TimeMode.swift in Sources */,
 				2CB329AD1F3FDD890056A268 /* ActivitiesTableViewController.swift in Sources */,
 				2C12C31E1F3F7E34001C2B36 /* ActivityChooserTableViewController.swift in Sources */,
@@ -246,9 +256,11 @@
 				2CB329F71F4360EB0056A268 /* LogViewController.swift in Sources */,
 				2C7E84281F45203E00047F7B /* ChartDelegate.swift in Sources */,
 				2CB329BB1F40CAA80056A268 /* TimeInterval.swift in Sources */,
+				2C1DCF8E1F4B2FD100166180 /* NotificationSettingsViewController.swift in Sources */,
 				2C7E842C1F4631E000047F7B /* Int.swift in Sources */,
 				2CB329E71F4245470056A268 /* ActivityColor.swift in Sources */,
 				2CB329EB1F42504F0056A268 /* Activities.xcdatamodeld in Sources */,
+				2C1DCF901F4D2D0800166180 /* UNNotificationCenter.swift in Sources */,
 				2C12C3221F3F85E1001C2B36 /* ActivityViewController.swift in Sources */,
 				2C7E842A1F462BA100047F7B /* SegmentChartSettingsViewController.swift in Sources */,
 				2C7E841D1F43DD5C00047F7B /* SegmentChartViewController.swift in Sources */,

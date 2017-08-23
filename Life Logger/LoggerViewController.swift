@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import os.log
+import UserNotifications
 
 class LoggerViewController: UIViewController, ActivityChooserDelegate {
     
@@ -79,6 +80,10 @@ class LoggerViewController: UIViewController, ActivityChooserDelegate {
         newLog.activity = currentActivity
         
         currentLog = newLog
+        
+        // Reset and configure new notifications
+        UNUserNotificationCenter.reconfigureNotifications(for: currentLog!)
+        
         
         DatabaseController.saveContext()
         startTimer()
