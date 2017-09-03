@@ -13,5 +13,5 @@ extension UserDefaults {
     static let segmentChartStartHour = "SegmentChartStartHour"
     static let segmentChartEndHour = "SegmentChartEndHour"
     static let minutesReport = "MinutesReport"
-    static let noActivityMinutesReport = "MinutesReport"
+    static let noActivityMinutesReport = "noActivityMinutesReport"
 }
