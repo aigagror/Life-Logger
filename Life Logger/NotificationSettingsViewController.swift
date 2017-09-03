@@ -14,36 +14,49 @@ import CoreData
 class NotificationSettingsViewController: UIViewController {
     
     
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var timeStepper: UIStepper!
+    @IBOutlet weak var logReportTimeLabel: UILabel!
+    @IBOutlet weak var logReportTimeStepper: UIStepper!
+    
+    @IBOutlet weak var noLogTimeLabel: UILabel!
+    @IBOutlet weak var noLogTimeStepper: UIStepper!
     
     @IBAction func valueChanged(_ sender: UIStepper) {
-        UserDefaults.standard.set(Int(sender.value), forKey: UserDefaults.minutesReport)
-        
-        // load the current activity if any
-        let fetchRequest: NSFetchRequest<Log> = Log.fetchRequest()
-        let predicate = NSPredicate(format: "dateEnded = nil")
-        fetchRequest.fetchLimit = 1
-        fetchRequest.predicate = predicate
-        
-        do {
-            let searchResults = try DatabaseController.getContext().fetch(fetchRequest)
-            guard searchResults.count <= 1 else {
-                os_log("More than one log fetched", log: OSLog.default, type: .debug)
-                return
+        if sender === logReportTimeStepper {
+            UserDefaults.standard.set(Int(sender.value), forKey: UserDefaults.minutesReport)
+            
+            // load the current activity if any
+            let fetchRequest: NSFetchRequest<Log> = Log.fetchRequest()
+            let predicate = NSPredicate(format: "dateEnded = nil")
+            fetchRequest.fetchLimit = 1
+            fetchRequest.predicate = predicate
+            
+            do {
+                let searchResults = try DatabaseController.getContext().fetch(fetchRequest)
+                guard searchResults.count <= 1 else {
+                    os_log("More than one log fetched", log: OSLog.default, type: .debug)
+                    return
+                }
+                
+                if let log = searchResults.first {
+                    // Update the notifications
+                    UNUserNotificationCenter.reconfigureNotifications(for: log)
+                }
+            }
+            catch {
+                print("Error: \(error)")
             }
             
-            if let log = searchResults.first {
-                // Update the notifications
-                UNUserNotificationCenter.reconfigureNotifications(for: log)
-            }
+            
+            logReportTimeLabel.text = sender.value == 0 ? "None" : TimeInterval(sender.value * 60).formatStringMinutes()
+        } else {
+            assert(sender === noLogTimeStepper)
+            
+            UserDefaults.standard.set(Int(sender.value), forKey: UserDefaults.noActivityMinutesReport)
+            
+            UNUserNotificationCenter.reconfigureNotifications(for: nil)
+            
+            noLogTimeLabel.text = sender.value == 0 ? "None" : TimeInterval(sender.value * 60).formatStringMinutes()
         }
-        catch {
-            print("Error: \(error)")
-        }
-        
-        
-        timeLabel.text = sender.value == 0 ? "None" : TimeInterval(sender.value * 60).formatStringMinutes()
     }
 
     override func viewDidLoad() {
@@ -51,8 +64,8 @@ class NotificationSettingsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         let minutesReport = UserDefaults.standard.integer(forKey: UserDefaults.minutesReport)
-        timeStepper.value = Double(minutesReport)
-        timeLabel.text = TimeInterval(minutesReport * 60).formatStringMinutes()
+        logReportTimeStepper.value = Double(minutesReport)
+        logReportTimeLabel.text = TimeInterval(minutesReport * 60).formatStringMinutes()
     }
 
     override func didReceiveMemoryWarning() {

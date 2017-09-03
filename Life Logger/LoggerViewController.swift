@@ -31,11 +31,7 @@ class LoggerViewController: UIViewController, ActivityChooserDelegate {
             DatabaseController.saveContext()
         }
         
-        let center = UNUserNotificationCenter.current()
-        
-        // Remove old notifications
-        center.removeAllPendingNotificationRequests()
-        center.removeAllDeliveredNotifications()
+        UNUserNotificationCenter.reconfigureNotifications(for: nil)
                 
         updateActivity()
     }
@@ -98,6 +94,7 @@ class LoggerViewController: UIViewController, ActivityChooserDelegate {
     
     // MARK: Private Methods
     
+    /// Reloads the activities from Core Data and updates the UI
     private func updateActivity() {
         // load the current activity if any
         let fetchRequest: NSFetchRequest<Log> = Log.fetchRequest()

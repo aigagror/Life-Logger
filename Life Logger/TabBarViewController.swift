@@ -22,6 +22,7 @@ class TabBarViewController: UITabBarController {
             UserDefaults.standard.set(0, forKey: UserDefaults.segmentChartStartHour)
             UserDefaults.standard.set(24, forKey: UserDefaults.segmentChartEndHour)
             UserDefaults.standard.set(60, forKey: UserDefaults.minutesReport)
+            UserDefaults.standard.set(60, forKey: UserDefaults.noActivityMinutesReport)
         }
         
         

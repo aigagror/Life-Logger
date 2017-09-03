@@ -224,40 +224,70 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="TrJ-zC-Fct">
-                                <rect key="frame" x="59.5" y="147" width="256.5" height="153.5"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="udv-hc-e8O">
+                                <rect key="frame" x="59.5" y="130" width="256.5" height="407"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log Report Time Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlD-7A-ytp">
-                                        <rect key="frame" x="0.0" y="0.0" width="256.5" height="24"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVq-qm-CIf">
-                                        <rect key="frame" x="105.5" y="64" width="46" height="20.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="1440" stepValue="15" translatesAutoresizingMaskIntoConstraints="NO" id="Bvn-kw-gnW">
-                                        <rect key="frame" x="81.5" y="124.5" width="94" height="29"/>
-                                        <connections>
-                                            <action selector="valueChanged:" destination="7KJ-Lb-ngV" eventType="valueChanged" id="fbj-Tf-oqW"/>
-                                        </connections>
-                                    </stepper>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="TrJ-zC-Fct">
+                                        <rect key="frame" x="0.0" y="0.0" width="256.5" height="153.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Log Report Time Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jlD-7A-ytp">
+                                                <rect key="frame" x="0.0" y="0.0" width="256.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVq-qm-CIf">
+                                                <rect key="frame" x="108" y="64" width="41" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="1440" stepValue="15" translatesAutoresizingMaskIntoConstraints="NO" id="Bvn-kw-gnW">
+                                                <rect key="frame" x="81.5" y="124.5" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="valueChanged:" destination="7KJ-Lb-ngV" eventType="valueChanged" id="fbj-Tf-oqW"/>
+                                                </connections>
+                                            </stepper>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="pKu-Vk-G1Z">
+                                        <rect key="frame" x="0.0" y="253.5" width="256.5" height="153.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Log Time Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ac-Pp-qfP">
+                                                <rect key="frame" x="17" y="0.0" width="222.5" height="24"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="None" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3C-Pm-lrm">
+                                                <rect key="frame" x="108" y="64" width="41" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="1440" stepValue="15" translatesAutoresizingMaskIntoConstraints="NO" id="aF8-ok-ujp">
+                                                <rect key="frame" x="81.5" y="124.5" width="94" height="29"/>
+                                                <connections>
+                                                    <action selector="valueChanged:" destination="7KJ-Lb-ngV" eventType="valueChanged" id="cIh-9L-9cp"/>
+                                                </connections>
+                                            </stepper>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="TrJ-zC-Fct" firstAttribute="top" secondItem="YRF-oM-a3F" secondAttribute="bottom" constant="83" id="arU-qk-tnX"/>
-                            <constraint firstItem="TrJ-zC-Fct" firstAttribute="centerX" secondItem="lAM-U3-TAB" secondAttribute="centerX" id="ikc-be-K1k"/>
+                            <constraint firstItem="udv-hc-e8O" firstAttribute="centerX" secondItem="lAM-U3-TAB" secondAttribute="centerX" id="9Oh-dj-lOP"/>
+                            <constraint firstItem="udv-hc-e8O" firstAttribute="centerY" secondItem="lAM-U3-TAB" secondAttribute="centerY" id="fEa-Or-zaP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Settings" id="tBO-x5-L0a"/>
                     <connections>
-                        <outlet property="timeLabel" destination="jVq-qm-CIf" id="Cq9-Q2-q9D"/>
-                        <outlet property="timeStepper" destination="Bvn-kw-gnW" id="xtU-j7-8Yc"/>
+                        <outlet property="logReportTimeLabel" destination="jVq-qm-CIf" id="cYW-gB-bbk"/>
+                        <outlet property="logReportTimeStepper" destination="Bvn-kw-gnW" id="Crv-1a-gHh"/>
+                        <outlet property="noLogTimeLabel" destination="h3C-Pm-lrm" id="74r-OM-n7Q"/>
+                        <outlet property="noLogTimeStepper" destination="aF8-ok-ujp" id="6wC-D4-VFY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X9h-I0-9Br" userLabel="First Responder" sceneMemberID="firstResponder"/>
