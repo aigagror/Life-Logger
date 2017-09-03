@@ -24,38 +24,33 @@ class NotificationSettingsViewController: UIViewController {
         if sender === logReportTimeStepper {
             UserDefaults.standard.set(Int(sender.value), forKey: UserDefaults.minutesReport)
             
-            // load the current activity if any
-            let fetchRequest: NSFetchRequest<Log> = Log.fetchRequest()
-            let predicate = NSPredicate(format: "dateEnded = nil")
-            fetchRequest.fetchLimit = 1
-            fetchRequest.predicate = predicate
-            
-            do {
-                let searchResults = try DatabaseController.getContext().fetch(fetchRequest)
-                guard searchResults.count <= 1 else {
-                    os_log("More than one log fetched", log: OSLog.default, type: .debug)
-                    return
-                }
-                
-                if let log = searchResults.first {
-                    // Update the notifications
-                    UNUserNotificationCenter.reconfigureNotifications(for: log)
-                }
-            }
-            catch {
-                print("Error: \(error)")
-            }
-            
-            
             logReportTimeLabel.text = sender.value == 0 ? "None" : TimeInterval(sender.value * 60).formatStringMinutes()
         } else {
             assert(sender === noLogTimeStepper)
             
             UserDefaults.standard.set(Int(sender.value), forKey: UserDefaults.noActivityMinutesReport)
             
-            UNUserNotificationCenter.reconfigureNotifications(for: nil)
-            
             noLogTimeLabel.text = sender.value == 0 ? "None" : TimeInterval(sender.value * 60).formatStringMinutes()
+        }
+        
+        // load the current activity if any
+        let fetchRequest: NSFetchRequest<Log> = Log.fetchRequest()
+        let predicate = NSPredicate(format: "dateEnded = nil")
+        fetchRequest.fetchLimit = 1
+        fetchRequest.predicate = predicate
+        
+        do {
+            let searchResults = try DatabaseController.getContext().fetch(fetchRequest)
+            guard searchResults.count <= 1 else {
+                os_log("More than one log fetched", log: OSLog.default, type: .debug)
+                return
+            }
+            
+            let currentLog = searchResults.first
+            UNUserNotificationCenter.reconfigureNotifications(for: currentLog)
+        }
+        catch {
+            print("Error: \(error)")
         }
     }
 
@@ -66,6 +61,10 @@ class NotificationSettingsViewController: UIViewController {
         let minutesReport = UserDefaults.standard.integer(forKey: UserDefaults.minutesReport)
         logReportTimeStepper.value = Double(minutesReport)
         logReportTimeLabel.text = TimeInterval(minutesReport * 60).formatStringMinutes()
+        
+        let noLogMinutesReport = UserDefaults.standard.integer(forKey: UserDefaults.noActivityMinutesReport)
+        noLogTimeStepper.value = Double(noLogMinutesReport)
+        noLogTimeLabel.text = TimeInterval(noLogMinutesReport * 60).formatStringMinutes()
     }
 
     override func didReceiveMemoryWarning() {
